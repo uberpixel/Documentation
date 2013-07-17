@@ -325,6 +325,11 @@ div.important p.admonition-title {
     border-bottom: 1px solid #f5871f;
 }
 
+div.admonition-example p.admonition-title {
+    color: #f5871f;
+    border-bottom: 1px solid #f5871f;
+}
+
 div.note p.admonition-title,
 div.hint p.admonition-title,
 div.tip p.admonition-title {
@@ -372,28 +377,41 @@ td > .line-block {
 }
 
 
-dl.function {
+
+dl.function,
+dl.member,
+dl.type {
     margin-bottom: 30px;
 }
 
-dl.function > dt {
+dl.function > dt,
+dl.member > dt,
+dl.type > dt {
     color: #40197e;
 }
 
-dl.function > dt > .descname {
+dl.function > dt > .descname,
+dl.member > dt > .descname,
+dl.type > dt > .descname {
     color: black;
 }
 
-dl.function > dt > .descclassname {
+dl.function > dt > .descclassname,
+dl.member > dt > .descclassname,
+dl.type > dt > .descclassname {
     color: #518187;
 }
 
 
 
-dl.function > dt > em {
+dl.function > dt > em,
+dl.member > dt > em,
+dl.type > dt > em {
     color: black;
 }
 
-dl.function > dt > big {
+dl.function > dt > big,
+dl.member > dt > big,
+dl.type > dt > big {
     color: #3d3d3d;
 }
