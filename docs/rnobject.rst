@@ -28,10 +28,10 @@ Tasks
 Identifying objects
 -------------------
 
-* :cpp:func:`Class() <Object::Class>`
+* :cpp:func:`Class() <Object::Class const>`
 * :cpp:func:`MetaClass() <Object::MetaClass>`
-* :cpp:func:`IsKindOfClass() <Object::IsKindOfClass>`
-* :cpp:func:`IsMemeberOfClass() <Object::IsMemberOfClass>`
+* :cpp:func:`IsKindOfClass() <Object::IsKindOfClass const>`
+* :cpp:func:`IsMemeberOfClass() <Object::IsMemberOfClass const>`
 * :cpp:func:`Downcast() <Object::Downcast const>`
 
 Comparing objects
@@ -54,8 +54,19 @@ Associating objects
 * :cpp:func:`RemoveAssociatedOject() <Object::RemoveAssociatedOject>`
 * :cpp:func:`AssociatedObject() <Object::AssociatedObject>`
 
+Class Methods
+=============
+
+.. function:: static MetaClassBase *Object::MetaClass()
+
 Instance Methods
 ================
+
+.. function:: MetaClassBase *Object::Class() const
+
+.. function:: bool Object::IsKindOfClass(MetaClassBase *other) const
+
+.. function:: bool Object::IsMemberOfClass(MetaClassBase *other) const
 
 .. function:: Object *Object::Retain()
 
@@ -67,6 +78,9 @@ Instance Methods
 	
 	Returns true if other is equal to the receiver. The default implementation simply checks for pointer equality,
 	subclasses may provide a custom and more sophisticated check.
+
+	.. note:: When overriding IsEqual(), Hash() must also be overridden, and equal objects must return the same hash
+	.. seealso:: :cpp:func:`Object::Hash`
 
 	:param other: The object to check for equality with the receiver
 	:param foo: Barfoo
@@ -83,7 +97,7 @@ Instance Methods
 
 	*Example:*
 
-	Code snippet::
+	.. code:: cpp
 
 		Object *foo = ...;
 		String *bar = foo->Downcast<String>();
@@ -99,3 +113,11 @@ Instance Methods
 
 .. function:: Object *Object::AssociatedObject(const void *key)
 	
+Constants
+=========
+
+.. type:: Object::MemoryPolicy
+	
+	* :code:`Assign`
+	* :code:`Retain`
+	* :code:`Copy`
