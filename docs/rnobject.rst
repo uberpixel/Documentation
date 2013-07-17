@@ -70,48 +70,87 @@ Instance Methods
 
 .. function:: Object *Object::Retain()
 
+	Increments the retain count of the receiver by 1
+
+	:return: Pointer to the instance, allowing method chaining
+
+	.. note:: This method is thread safe
+
 .. function:: Object *Object::Release()
 
+	Decrements the retain count of the receiver by 1. If the retain count becomes zero,
+	the instance is deleted and its constructor is called.
+
+	:return: Pointer to the instance, or nullptr if the instance was deallocated.
+
+	.. note:: This method is thread safe
+
 .. function:: Object *Object::Autorelease()
+
+	Adds the instance to the current threads autorelease pool, marking it to be released in the future.
+	The method should be used for return values when the callee doesn't explicitly delegates the ownership of the object to the caller.
+
+	:return: Pointer to the instance, allowing method chaining
+
+	.. note:: This method is thread safe
 
 .. function:: bool Object::IsEqual(Object *other) const
 	
 	Returns true if other is equal to the receiver. The default implementation simply checks for pointer equality,
 	subclasses may provide a custom and more sophisticated check.
 
+	:param other: The object to check for equality with the receiver
+	:return: true if the objects are equal, otherwise false
+
 	.. note:: When overriding IsEqual(), Hash() must also be overridden, and equal objects must return the same hash
 	.. seealso:: :cpp:func:`Object::Hash`
-
-	:param other: The object to check for equality with the receiver
-	:param foo: Barfoo
-	:return: true if the objects are equal, otherwise false
 
 .. function:: machine_hash Object::Hash() const
 
 	Returns a hash for the receiver. The default implementation returns the hashed value of the pointer of the instance,
 	subclasses may provide a custom hashing function (eg. the :cpp:class:`String` class returns the hash of the string value).
 
+	:return: The hash value for the object.
+
+	.. note:: When overriding Hash(), IsEqual() must also be overridden, and equal objects must return the same hash
+	.. seealso:: :cpp:func:`Object::IsEqual`
+
 .. function:: T *Object::Downcast() const
 	
 	Attempts to downcast the receiver to the given type T.
-
-	*Example:*
-
-	.. code:: cpp
-
-		Object *foo = ...;
-		String *bar = foo->Downcast<String>();
-
 
 	:returns: The same instance, but downcasted to T. The return value is always valid.
 	:raises: DowncastException if no conversion to T is possible
 	:raises: Static assertion if T doesn't inherit from Object (or one of its subclasses)
 
+	.. admonition:: Example
+
+		.. code:: cpp
+
+			Object *foo = ...;
+			String *bar = foo->Downcast<String>();
+
 .. function:: void Object::SetAssociatedObject(const void *key, Object *value, MemoryPolicy policy)
+
+	.. note:: This method is thread safe
+	.. seealso:: 
+		| :cpp:func:`Object::RemoveAssociatedOject` 
+		| :cpp:func:`Object::AssociatedObject` 
+		| :cpp:type:`Object::MemoryPolicy`
 
 .. function:: void Object::RemoveAssociatedOject(const void *key)
 
+	.. note:: This method is thread safe
+	.. seealso:: 
+		| :cpp:func:`Object::SetAssociatedObject` 
+		| :cpp:func:`Object::AssociatedObject` 
+
 .. function:: Object *Object::AssociatedObject(const void *key)
+
+	.. note:: This method is thread safe
+	.. seealso:: 
+		| :cpp:func:`Object::SetAssociatedObject` 
+		| :cpp:func:`Object::RemoveAssociatedOject` 
 	
 Constants
 =========
