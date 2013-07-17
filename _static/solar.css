@@ -338,6 +338,41 @@ div.viewcode-block:target {
     border-bottom: 1px solid #eee;
 }
 
+tt.descname {
+    font-weight: 500;
+}
+
+tt.xref {
+    font-weight: 500;
+}
+
+td > .line-block {
+    margin-bottom: 0px;
+}
+
+
 dl.function {
     margin-bottom: 30px;
+}
+
+dl.function > dt {
+    color: #40197e;
+}
+
+dl.function > dt > .descname {
+    color: black;
+}
+
+dl.function > dt > .descclassname {
+    color: #518187;
+}
+
+
+
+dl.function > dt > em {
+    color: black;
+}
+
+dl.function > dt > big {
+    color: #3d3d3d;
 }
