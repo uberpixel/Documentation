@@ -380,38 +380,60 @@ td > .line-block {
 
 dl.function,
 dl.member,
-dl.type {
+dl.type,
+dl.class {
     margin-bottom: 30px;
 }
 
 dl.function > dt,
 dl.member > dt,
-dl.type > dt {
+dl.type > dt,
+dl.class > dt {
     color: #40197e;
 }
 
 dl.function > dt > .descname,
 dl.member > dt > .descname,
-dl.type > dt > .descname {
+dl.type > dt > .descname,
+dl.class > dt > .descname {
     color: black;
 }
 
 dl.function > dt > .descclassname,
 dl.member > dt > .descclassname,
-dl.type > dt > .descclassname {
+dl.type > dt > .descclassname,
+dl.class > dt > .descclassname {
     color: #518187;
 }
 
-
-
 dl.function > dt > em,
 dl.member > dt > em,
-dl.type > dt > em {
+dl.type > dt > em,
+dl.class > dt > em {
     color: black;
 }
 
 dl.function > dt > big,
 dl.member > dt > big,
-dl.type > dt > big {
+dl.type > dt > big,
+dl.class > dt > big {
     color: #3d3d3d;
+}
+
+
+
+div#class-methods > dl.class > dt {
+    display: none;
+}
+
+div#class-methods > dl.class > dd {
+    margin-left: 0px;
+}
+
+div#instance-methods > dl.class > dt {
+    display: none;
+}
+
+div#instance-methods > dl.class > dd {
+    margin-left: 0px;
 }

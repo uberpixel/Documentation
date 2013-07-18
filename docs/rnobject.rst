@@ -28,11 +28,11 @@ Tasks
 Identifying objects
 -------------------
 
-* :cpp:func:`Class() <Object::Class const>`
+* :cpp:func:`Class() const <Object::Class const>`
 * :cpp:func:`MetaClass() <Object::MetaClass>`
-* :cpp:func:`IsKindOfClass() <Object::IsKindOfClass const>`
-* :cpp:func:`IsMemeberOfClass() <Object::IsMemberOfClass const>`
-* :cpp:func:`Downcast() <Object::Downcast const>`
+* :cpp:func:`IsKindOfClass() const <Object::IsKindOfClass const>`
+* :cpp:func:`IsMemeberOfClass() const <Object::IsMemberOfClass const>`
+* :cpp:func:`Downcast() <Object::Downcast>`
 
 Comparing objects
 -----------------
@@ -57,106 +57,112 @@ Associating objects
 Class Methods
 =============
 
-.. function:: static MetaClassBase *Object::MetaClass()
+.. class:: Object 
+
+	.. function:: static MetaClassBase *MetaClass()
 
 Instance Methods
 ================
 
-.. function:: MetaClassBase *Object::Class() const
+.. class:: Object 
 
-.. function:: bool Object::IsKindOfClass(MetaClassBase *other) const
+	.. function:: MetaClassBase *Class() const
 
-.. function:: bool Object::IsMemberOfClass(MetaClassBase *other) const
+	.. function:: bool IsKindOfClass(MetaClassBase *other) const
 
-.. function:: Object *Object::Retain()
+	.. function:: bool IsMemberOfClass(MetaClassBase *other) const
 
-	Increments the retain count of the receiver by 1
+	.. function:: Object *Retain()
 
-	:return: Pointer to the instance, allowing method chaining
+		Increments the retain count of the receiver by 1
 
-	.. note:: This method is thread safe
+		:return: Pointer to the instance, allowing method chaining
 
-.. function:: Object *Object::Release()
+		.. note:: This method is thread safe
 
-	Decrements the retain count of the receiver by 1. If the retain count becomes zero,
-	the instance is deleted and its constructor is called.
+	.. function:: Object *Release()
 
-	:return: Pointer to the instance, or nullptr if the instance was deallocated.
+		Decrements the retain count of the receiver by 1. If the retain count becomes zero,
+		the instance is deleted and its constructor is called.
 
-	.. note:: This method is thread safe
+		:return: Pointer to the instance, or nullptr if the instance was deallocated.
 
-.. function:: Object *Object::Autorelease()
+		.. note:: This method is thread safe
 
-	Adds the instance to the current threads autorelease pool, marking it to be released in the future.
-	The method should be used for return values when the callee doesn't explicitly delegates the ownership of the object to the caller.
+	.. function:: Object *Autorelease()
 
-	:return: Pointer to the instance, allowing method chaining
+		Adds the instance to the current threads autorelease pool, marking it to be released in the future.
+		The method should be used for return values when the callee doesn't explicitly delegates the ownership of the object to the caller.
 
-	.. note:: This method is thread safe
+		:return: Pointer to the instance, allowing method chaining
 
-.. function:: bool Object::IsEqual(Object *other) const
-	
-	Returns true if other is equal to the receiver. The default implementation simply checks for pointer equality,
-	subclasses may provide a custom and more sophisticated check.
+		.. note:: This method is thread safe
 
-	:param other: The object to check for equality with the receiver
-	:return: true if the objects are equal, otherwise false
+	.. function:: bool IsEqual(Object *other) const
+		
+		Returns true if other is equal to the receiver. The default implementation simply checks for pointer equality,
+		subclasses may provide a custom and more sophisticated check.
 
-	.. note:: When overriding IsEqual(), Hash() must also be overridden, and equal objects must return the same hash
-	.. seealso:: :cpp:func:`Object::Hash`
+		:param other: The object to check for equality with the receiver
+		:return: true if the objects are equal, otherwise false
 
-.. function:: machine_hash Object::Hash() const
+		.. note:: When overriding IsEqual(), Hash() must also be overridden, and equal objects must return the same hash
+		.. seealso:: :cpp:func:`Object::Hash`
 
-	Returns a hash for the receiver. The default implementation returns the hashed value of the pointer of the instance,
-	subclasses may provide a custom hashing function (eg. the :cpp:class:`String` class returns the hash of the string value).
+	.. function:: machine_hash Hash() const
 
-	:return: The hash value for the object.
+		Returns a hash for the receiver. The default implementation returns the hashed value of the pointer of the instance,
+		subclasses may provide a custom hashing function (eg. the :cpp:class:`String` class returns the hash of the string value).
 
-	.. note:: When overriding Hash(), IsEqual() must also be overridden, and equal objects must return the same hash
-	.. seealso:: :cpp:func:`Object::IsEqual`
+		:return: The hash value for the object.
 
-.. function:: T *Object::Downcast() const
-	
-	Attempts to downcast the receiver to the given type T.
+		.. note:: When overriding Hash(), IsEqual() must also be overridden, and equal objects must return the same hash
+		.. seealso:: :cpp:func:`Object::IsEqual`
 
-	:returns: The same instance, but downcasted to T. The return value is always valid.
-	:raises: DowncastException if no conversion to T is possible
-	:raises: Static assertion if T doesn't inherit from Object (or one of its subclasses)
+	.. function:: T *Downcast()
+		
+		Attempts to downcast the receiver to the given type T.
 
-	.. admonition:: Example
+		:returns: The same instance, but downcasted to T. The return value is always valid.
+		:raises: DowncastException if no conversion to T is possible
+		:raises: Static assertion if T doesn't inherit from Object (or one of its subclasses)
 
-		.. code:: cpp
+		.. admonition:: Example
 
-			Object *foo = ...;
-			String *bar = foo->Downcast<String>();
+			.. code:: cpp
 
-.. function:: void Object::SetAssociatedObject(const void *key, Object *value, MemoryPolicy policy)
+				Object *foo = ...;
+				String *bar = foo->Downcast<String>();
 
-	.. note:: This method is thread safe
-	.. seealso:: 
-		| :cpp:func:`Object::RemoveAssociatedOject` 
-		| :cpp:func:`Object::AssociatedObject` 
-		| :cpp:type:`Object::MemoryPolicy`
+	.. function:: void SetAssociatedObject(const void *key, Object *value, MemoryPolicy policy)
 
-.. function:: void Object::RemoveAssociatedOject(const void *key)
+		.. note:: This method is thread safe
+		.. seealso:: 
+			| :cpp:func:`RemoveAssociatedOject` 
+			| :cpp:func:`AssociatedObject` 
+			| :cpp:type:`MemoryPolicy`
 
-	.. note:: This method is thread safe
-	.. seealso:: 
-		| :cpp:func:`Object::SetAssociatedObject` 
-		| :cpp:func:`Object::AssociatedObject` 
+	.. function:: void RemoveAssociatedOject(const void *key)
 
-.. function:: Object *Object::AssociatedObject(const void *key)
+		.. note:: This method is thread safe
+		.. seealso:: 
+			| :cpp:func:`SetAssociatedObject` 
+			| :cpp:func:`AssociatedObject` 
 
-	.. note:: This method is thread safe
-	.. seealso:: 
-		| :cpp:func:`Object::SetAssociatedObject` 
-		| :cpp:func:`Object::RemoveAssociatedOject` 
-	
+	.. function:: Object *AssociatedObject(const void *key)
+
+		.. note:: This method is thread safe
+		.. seealso:: 
+			| :cpp:func:`SetAssociatedObject` 
+			| :cpp:func:`RemoveAssociatedOject` 
+		
 Constants
 =========
 
-.. type:: Object::MemoryPolicy
-	
-	* :code:`Assign`
-	* :code:`Retain`
-	* :code:`Copy`
+.. class:: Object 
+
+	.. type:: MemoryPolicy
+		
+		* :code:`Assign`
+		* :code:`Retain`
+		* :code:`Copy`

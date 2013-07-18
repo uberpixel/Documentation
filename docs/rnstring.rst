@@ -28,6 +28,14 @@ Object implements the root class for most high level classes in Rayne.
 Tasks
 =====
 
+Creating strings
+----------------
+
+* :cpp:func:`String <String::String>`
+* :cpp:func:`WithFormat <String::WithFormat>`
+* :cpp:func:`WithString <String::WithString>`
+* :cpp:func:`WithBytes <String::WithBytes>`
+
 Manipulating strings
 --------------------
 
@@ -52,13 +60,46 @@ Accessing strings
 * :cpp:func:`BytesWithEncoding() <String::BytesWithEncoding>`
 * :cpp:func:`UTF8String() <String::UTF8String>`
 
+Class Methods
+=============
+
+.. class:: String
+
+	.. function:: String()
+
+	.. function:: String(const char *string, va_list args)
+
+		Constructs a string using the given ASCII string and variable argument list. The ASCII string is parsed in a printf() style
+		and the resulting string contains the formatted result.
+
+		:param string: ASCII string with format specifiers
+		:param args: List with arguments that matches the format specifiers of the string
+
+	.. function:: String(const char *string, bool constant=false)
+
+	.. function:: String(const char *string, size_t length, bool constant=false)
+
+	.. function:: String(const void *bytes, Encoding encoding, bool constant=false)
+
+	.. function:: String(const void *bytes, size_t length, Encoding encoding, bool constant=false)
+
+	.. function:: String(const String *string)
+	
+	.. function:: static String *WithFormat(const char *string, ...)
+
+	.. function:: static String *WithString(const char *string, bool constant=false)
+
+	.. function:: static String *WithString(const char *string, size_t length, bool constant=false)
+
+	.. function:: static String *WithBytes(const void *bytes, Encoding encoding, bool constant=false)
+
+	.. function:: static String *WithBytes(const void *bytes, size_t length, Encoding encoding, bool constant=false)
+
 Instance Methods
 ================
 
-.. function:: String::String(const char *string, va_list args)
+.. class:: String
 
-	Constructs a string using the given ASCII string and variable argument list. The ASCII string is parsed in a printf() style
-	and the resulting string contains the formatted result.
+	.. function:: void Append(const String *string)
 
-	:param string: ASCII string with format specifiers
-	:param args: List with arguments that matches the format specifiers of the string
+		Appends the other string to the end of the receiver
