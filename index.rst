@@ -55,6 +55,14 @@ Objects
 	
 	docs/rnobject.rst
 
+Scene
+-----
+.. toctree::
+	:maxdepth: 1
+	
+	docs/scene/rnscenenode.rst
+	docs/scene/rnentity.rst
+
 Misc
 ====
 
