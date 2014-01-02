@@ -13,7 +13,7 @@ Constants reference
 Overview
 ========
 
-This document describes the constants found in Rayne.
+This document describes the constants found in Rayne. All constants live in the `k` namespace within the `RN` namespace.
 
 Constants
 =========

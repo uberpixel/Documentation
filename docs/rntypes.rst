@@ -63,7 +63,7 @@ Data Types
 
 	.. seealso::
 
-		:cpp:func:`Kernel::CurrentFrame`
+		:cpp:func:`Kernel::GetCurrentFrame`
 
 .. class:: Range
 
@@ -78,7 +78,7 @@ Data Types
 
 		Constructs a range using the given origin and length
 
-	.. function:: size_t End() const
+	.. function:: size_t GetEnd() const
 
 		Returns the last index covered by the range. This is the same as :code:`origin + length`
 
@@ -104,7 +104,7 @@ Data Types
 	Provides a base class to implement singletons. The class provides a getter to access the shared instance of
 	the singleton, and if it doesn't exist yet, the singleton is constructed using its default constructor.
 
-	.. function:: static T *SharedInstance()
+	.. function:: static T *GetSharedInstance()
 
 		Returns the shared instance of the singleton. If it doesn't exist yet, an instance will be constructed using the default constructor.
 
@@ -129,7 +129,7 @@ Data Types
 	is requested but not found. The first instance constructed is used the shared instance, and attempting to
 	construct further instances will raise an assertion.
 
-	.. function:: static T *SharedInstance()
+	.. function:: static T *GetSharedInstance()
 
 		Returns the shared instance of the singleton, or nullptr if there is none
 
