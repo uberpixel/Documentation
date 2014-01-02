@@ -36,7 +36,7 @@ The reference counting brings numerous advantages, however, it also means that y
 Subclassing notes
 -----------------
 
-To play nicely with the Objects runtime type introspection system, you are advised to add appropriate invocation the :cpp:func:`RNDefineMeta <RNDefineMeta>` and :cpp:func:`RNDeclareMeta <RNDeclareMeta>` macros.
+To play nicely with the Objects runtime type introspection system, you are advised to add appropriate invocation the :c:macro:`RNDefineMeta <RNDefineMeta>` and :c:macro:`RNDeclareMeta <RNDeclareMeta>` macros.
 
 Tasks
 =====
@@ -290,7 +290,7 @@ Constants
 Macros
 ======
 
-.. function:: RNDefineMeta(cls, super)
+.. c:macro:: RNDefineMeta(cls, super)
 
 	Adds required prototypes for the runtime type system to the given class. Must be added within the class definition.
 
@@ -309,7 +309,7 @@ Macros
 				RNDefineMeta(MyClass, Object)
 			};
 
-.. function:: RNDeclareMeta(cls)
+.. c:macro:: RNDeclareMeta(cls)
 
 	Adds required implementations for the runtime type system to the given class. MUST be added within a .cpp file due to the way linking works.
 
