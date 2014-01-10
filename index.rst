@@ -62,6 +62,14 @@ Scene
 	
 	docs/scene/rnscenenode.rst
 	docs/scene/rnentity.rst
+	docs/scene/rnlight.rst
+
+Misc
+----
+.. toctree::
+	:maxdepth: 1
+	
+	docs/misc/rnlockfreeringbuffer.rst
 
 Misc
 ====
@@ -70,6 +78,7 @@ Misc
 	:maxdepth: 1
 
 	misc/licensing.rst
+	misc/thanks.rst
 
 
 Indices and tables

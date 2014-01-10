@@ -65,6 +65,18 @@ Data Types
 
 		:cpp:func:`Kernel::GetCurrentFrame`
 
+
+.. type:: enum ComparisonResult
+
+	Enum used to signal the result of an comparison of two values.
+
+	* :code:`LessThan = -1` Signals that the left side is less than the right side
+	* :code:`EqualTo = 0` Signals that both sides are equal
+	* :code:`GreaterThan = 1` Signals that the left side is greater than the right side
+
+Range
+=====
+
 .. class:: Range
 
 	The Range class represents a range of indices starting at :cpp:member:`origin` and a length of :cpp:member:`length`.
@@ -99,6 +111,10 @@ Data Types
 
 		The length of the range
 
+
+Singleton<T>
+============
+
 .. class:: Singleton<T>
 	
 	Provides a base class to implement singletons. The class provides a getter to access the shared instance of
@@ -121,7 +137,10 @@ Data Types
 
 			// ...
 
-			MyClass *instance = MyClass::SharedInstance();
+			MyClass *instance = MyClass::GetSharedInstance();
+
+NonConstructingSingleton<T>
+===========================
 	
 .. class:: NonConstructingSingleton<T>
 	
@@ -132,12 +151,4 @@ Data Types
 	.. function:: static T *GetSharedInstance()
 
 		Returns the shared instance of the singleton, or nullptr if there is none
-
-.. type:: enum ComparisonResult
-
-	Enum used to signal the result of an comparison of two values.
-
-	* :code:`LessThan = -1` Signals that the left side is less than the right side
-	* :code:`EqualTo = 0` Signals that both sides are equal
-	* :code:`GreaterThan = 1` Signals that the left side is greater than the right side
 
