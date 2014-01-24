@@ -57,51 +57,56 @@ Spatial Modification
 --------------------
 
 * :cpp:func:`Translate(const Vector3& trans) <SceneNode::Translate>`
+* :cpp:func:`TranslateLocal(const Vector3& trans) <SceneNode::TranslateLocal>`
 * :cpp:func:`Scale(const Vector3& scal) <SceneNode::Scale>`
 * :cpp:func:`Rotate(const Vector3& rot) <SceneNode::Rotate>`
-* :cpp:func:`TranslateLocal(const Vector3& trans) <SceneNode::TranslateLocal>`
-* :cpp:func:`ScaleLocal(const Vector3& scal) <SceneNode::ScaleLocal>`
+* :cpp:func:`LookAt(const RN::Vector3 &target, bool keepUpAxis=false) <SceneNode::LookAt>`
 * :cpp:func:`virtual SetPosition(const Vector3& pos) <SceneNode::SetPosition>`
 * :cpp:func:`virtual SetScale(const Vector3& scal) <SceneNode::SetScale>`
 * :cpp:func:`virtual SetRotation(const Quaternion& rot) <SceneNode::SetRotation>`
 * :cpp:func:`virtual SetWorldPosition(const Vector3& pos) <SceneNode::SetWorldPosition>`
 * :cpp:func:`virtual SetWorldScale(const Vector3& scal) <SceneNode::SetWorldScale>`
 * :cpp:func:`virtual SetWorldRotation(const Quaternion& rot) <SceneNode::SetWorldRotation>`
-* :cpp:func:`LookAt(SceneNode *other) <SceneNode::LookAt>`
 * :cpp:func:`GetPosition() const <SceneNode::GetPosition>`
 * :cpp:func:`GetScale() const <SceneNode::GetScale>`
 * :cpp:func:`GetEulerAngle() const <SceneNode::GetEulerAngle>`
 * :cpp:func:`GetRotation() const <SceneNode::GetRotation>`
-* :cpp:func:`Forward() const <SceneNode::Forward>`
-* :cpp:func:`Up() const <SceneNode::Up>`
-* :cpp:func:`Right() const <SceneNode::Right>`
+* :cpp:func:`GetTransform() const <SceneNode::GetTransform>`
+* :cpp:func:`GetForward() const <SceneNode::GetForward>`
+* :cpp:func:`GetUp() const <SceneNode::GetUp>`
+* :cpp:func:`GetRight() const <SceneNode::GetRight>`
 * :cpp:func:`GetWorldPosition() const <SceneNode::GetWorldPosition>`
 * :cpp:func:`GetWorldScale() const <SceneNode::GetWorldScale>`
 * :cpp:func:`GetWorldEulerAngle() const <SceneNode::GetWorldEulerAngle>`
 * :cpp:func:`GetWorldRotation() const <SceneNode::GetWorldRotation>`
 * :cpp:func:`GetWorldTransform() const <SceneNode::GetWorldTransform>`
-* :cpp:func:`GetLocalTransform() const <SceneNode::GetLocalTransform>`
 
 Modification
 ------------
 
 * :cpp:func:`SetFlags(Flags flags) <SceneNode::SetFlags>`
-* :cpp:func:`SetBoundingBox(const AABB& boundingBox, bool calculateBoundingSphere) <SceneNode::SetBoundingBox>`
+* :cpp:func:`SetBoundingBox(const AABB& boundingBox, bool calculateBoundingSphere=true) <SceneNode::SetBoundingBox>`
 * :cpp:func:`SetBoundingSphere(const Sphere& boundingSphere) <SceneNode::SetBoundingSphere>`
+* :cpp:func:`SetRenderGroup(uint8 group) <SceneNode::SetRenderGroup>`
+* :cpp:func:`SetCollisionGroup(uint8 group) <SceneNode::SetCollisionGroup>`
 * :cpp:func:`SetPriority(Priority priority) <SceneNode::SetPriority>`
 * :cpp:func:`SetAction(const std::function& action) <SceneNode::SetAction>`
 * :cpp:func:`virtual Update(float delta) <SceneNode::Update>`
 * :cpp:func:`GetFlags() const <SceneNode::GetFlags>`
+* :cpp:func:`GetBoundingBox() const <SceneNode::GetBoundingBox>`
+* :cpp:func:`GetBoundingSphere() const <SceneNode::GetBoundingSphere>`
+* :cpp:func:`GetRenderGroup() const <SceneNode::GetRenderGroup>`
+* :cpp:func:`GetCollisionGroup() const <SceneNode::GetCollisionGroup>`
+* :cpp:func:`GetPriority() const <SceneNode::GetPriority>`
 * :cpp:func:`GetLastFrame() const <SceneNode::GetLastFrame>`
 * :cpp:func:`GetWorld() const <SceneNode::GetWorld>`
-* :cpp:func:`GetPriority() const <SceneNode::GetPriority>`
 
 Working with children
 ---------------------
 
-* :cpp:func:`AttachChild(SceneNode *child) <SceneNode::AttachChild>`
-* :cpp:func:`DetachChild(SceneNode *child) <SceneNode::DetachChild>`
-* :cpp:func:`DetachFromParent() <SceneNode::DetachFromParent>`
+* :cpp:func:`AddChild(SceneNode *child) <SceneNode::AddChild>`
+* :cpp:func:`RemoveChild(SceneNode *child) <SceneNode::RemoveChild>`
+* :cpp:func:`RemoveFromParent() <SceneNode::RemoveFromParent>`
 * :cpp:func:`GetChildren() const <SceneNode::GetChildren>`
 * :cpp:func:`GetParent() const <SceneNode::GetParent>`
 
@@ -120,16 +125,14 @@ Synchronization
 * :cpp:func:`AddDependency(SceneNode *dependency) <SceneNode::AddDependency>`
 * :cpp:func:`RemoveDependency(SceneNode *dependency) <SceneNode::RemoveDependency>`
 * :cpp:func:`virtual CanUpdate(FrameID frame) <SceneNode::CanUpdate>`
-* :cpp:func:`LockChildren() const <SceneNode::LockChildren>`
-* :cpp:func:`UnlockChildren() const <SceneNode::UnlockChildren>`
 
 Callbacks
 ---------
 
-* :cpp:func:`virtual ChildDidUpdate(SceneNode *child, uint32 changes) <SceneNode::ChildDidUpdate>`
-* :cpp:func:`virtual ChildWillUpdate(SceneNode *child, uint32 changes) <SceneNode::ChildWillUpdate>`
-* :cpp:func:`virtual WillAddChild(SceneNode *child) <SceneNode::WillAddChild>`
-* :cpp:func:`virtual DidAddChild(SceneNode *child) <SceneNode::DidAddChild>`
+* :cpp:func:`virtual ChildWillUpdate(SceneNode *child, ChangeSet changes) <SceneNode::ChildWillUpdate>`
+* :cpp:func:`virtual ChildDidUpdate(SceneNode *child, ChangeSet changes) <SceneNode::ChildDidUpdate>`
+* :cpp:func:`virtual WillAttachChild(SceneNode *child) <SceneNode::WillAddChild>`
+* :cpp:func:`virtual DidAttachChild(SceneNode *child) <SceneNode::DidAddChild>`
 * :cpp:func:`virtual WillRemoveChild(SceneNode *child) <SceneNode::WillRemoveChild>`
 * :cpp:func:`virtual DidRemoveChild(SceneNode *child) <SceneNode::DidRemoveChild>`
 
@@ -151,6 +154,173 @@ Instance Methods
 
 		The designated constructor. Initializes the position to `position`, scale to `1|1|1` and rotation to `rotation`.
 
+	.. function:: void Translate(const Vector3& trans)
+
+		Move the scene node with the given translation vector in world coordinates or if it has a parent within the parents coordinate system.
+
+	.. function:: void TranslateLocal(const Vector3& trans)
+
+		Move the scene node with the given translation vector along the scene nodes own coordinate System.
+
+		.. admonition:: Example
+
+			.. code:: cpp
+
+				// Move along the scene nodes forward direction
+				TranslateLocal(RN::Vector3(0.0f, 0.0f, -1.0f));
+
+				// Move along the scene nodes right direction
+				TranslateLocal(RN::Vector3(1.0f, 0.0f, 0.0f));
+
+				// Move along the scene nodes up direction
+				TranslateLocal(RN::Vector3(0.0f, 1.0f, 0.0f));
+
+	.. function:: void Scale(const Vector3& scal)
+
+		Change the scene nodes scale along the different axes within its own coordinate system.
+
+	.. function:: void Rotate(const Vector3& rot)
+
+		Rotate the scene node within its own coordinate system with the given yaw, pitch and roll angle.
+
+		.. admonition:: Example
+
+			.. code:: cpp
+
+				void RotatingCoin::Update(float delta)
+				{
+					// Rotate around its y-axis with 16 degrees per second
+					Rotate(RN::Vector3(16.0f*delta, 0.0f, 0.0f));
+				}
+
+	.. function:: void LookAt(const RN::Vector3 &target, bool keepUpAxis=false)
+
+		Rotate the scene node to look at the target position.
+		If keepUpAxis is set to true, it will only rotate around its up vector.
+
+	.. function:: void SetPosition(const Vector3& pos)
+
+		Set the scene node to the position given in pos. This will be within the parents coordinate system or the world if there is none.
+
+	.. function:: void SetScale(const Vector3& scal)
+
+		Set the scene nodes scale to the given scale. This will be effected by the parents scale if there is one.
+
+	.. function:: void SetRotation(const Quaternion& rot)
+
+		Set the scene nodes rotation to the given rotation. This will be effected by the parents rotation if there is one.
+
+	.. function:: void SetWorldPosition(const Vector3& pos)
+
+		Set the scene nodes position to the given position. This will compensate the parents transformations if there is one.
+
+	.. function:: void SetWorldScale(const Vector3& scal)
+
+		Set the scene nodes scale to the given scale. This will compensate the parents transformations if there is one.
+
+	.. function:: void SetWorldRotation(const Quaternion& rot)
+
+		Set the scene nodes rotation to the given rotation. This will compensate the parents transformations if there is one.
+
+	.. function:: Vector3 GetPosition() const
+
+		Returns the scene nodes position within its parents coordinate system or the worlds coordinate system if there is no parent.
+
+	.. function:: Vector3 GetScale() const
+
+		Returns the scene nodes scale within its parents coordinate system or the worlds coordinate system if there is no parent.
+
+	.. function:: Vector3 GetEulerAngle() const
+
+		Returns the scene nodes rotation in yaw-pitch-roll euler angles within its parents coordinate system or the worlds coordinate system if there is no parent.
+
+	.. function:: Quaternion GetRotation() const
+
+		Returns the scene nodes rotation within its parents coordinate system or the worlds coordinate system if there is no parent.
+
+	.. function:: Matrix GetTransform() const
+
+		Returns the scene nodes transformation matrix in its parents space if there is one, in world space otherwise.
+
+	.. function:: Vector3 GetForward() const
+
+		Returns a vector pointing into the scene nodes coordinate systems forward (0, 0, -1) direction within world coordinates.
+
+	.. function:: Vector3 GetUp() const
+
+		Returns a vector pointing into the scene nodes coordinate systems up (0, 1, 0) direction within world coordinates.
+
+	.. function:: Vector3 GetRight() const
+
+		Returns a vector pointing into the scene nodes coordinate systems right (1, 0, 0) direction within world coordinates.
+
+	.. function:: Vector3 GetWorldPosition() const
+
+		Returns the position of the scene node within the world.
+
+	.. function:: Vector3 GetWorldScale() const
+
+		Returns the scale of the scene node within the world.
+
+	.. function:: Vector3 GetWorldEulerAngle() const
+
+		Returns the rotation as yaw, pitch and roll angle of the scene node within the world.
+
+	.. function:: Quaternion GetWorldRotation() const
+
+		Returns the rotation of the scene node within the world.
+
+	.. function:: Matrix GetWorldTransform() const
+
+		Returns the scene nodes transformation matrix in world space.
+
+	.. function:: void SetFlags(Flags flags)
+
+		Allows to set one or more flags for the scene node.
+
+		.. seealso:: :cpp:type:`Flags`
+
+		.. admonition:: Example
+
+			.. code:: cpp
+
+				// Render the scene node after everything else and don´t call its update method
+				SetFlags(Flags::FlagDrawLate | Flags::FlagStatic);
+
+	.. function:: void SetBoundingBox(const AABB& boundingBox, bool calculateBoundingSphere=true)
+
+		Allows to set a custom bounding box and if calculateBoundingSphere is set, a bounding sphere covering the box will automatically be set.
+
+	.. function:: void SetBoundingSphere(const Sphere& boundingSphere)
+
+		Allows to set a custom bounding sphere which will be used for culling.
+
+	.. function:: void SetRenderGroup(uint8 group)
+
+		Cameras can specify which render groups they render. So this feature can be used to hide a scene node in some cameras while rendering it in others.
+
+		.. admonition:: Example
+
+			.. code:: cpp
+
+				// Create a camera and set its render groups
+				RN::Camera *reflectionCamera = new RN::Camera();
+				reflectionCamera->SetRenderGroups(RN::Camera::RenderGroups::Group0);
+
+				// Have only node1 rendered by reflectionCamera
+				node1->SetRenderGroup(0);
+				node2->SetRenderGroup(1);
+
+	.. function:: void SetCollisionGroup(uint8 group)
+
+		This is currently only used to specify what scene nodes a ray cast can hit.
+
+	.. function:: void SetPriority(Priority priority)
+
+		This can be used to set an update priority for the scene node.
+		The default value is UpdateDontCare, but can be changed to schedule the scene nodes update earlier or later.
+
+		.. seealso:: :cpp:type:`Priority`
 
 	.. function:: void SetAction(const std::function<>& action)
 
@@ -173,6 +343,77 @@ Instance Methods
 		.. note::
 
 			This method may be called on ANY thread.
+
+	.. function:: Flags GetFlags() const
+
+		Returns the currently set flags of the scene node.
+
+	.. function:: AABB GetBoundingBox() const
+
+		Returns the scene nodes bounding box.
+
+	.. function:: Sphere GetBoundingSphere() const
+
+		Returns the scene nodes bounding sphere.
+
+	.. function:: uint8 GetRenderGroup() const
+
+		Returns the scene nodes render group.
+
+	.. function:: uint8 GetCollisionGroup() const
+
+		Returns the scene nodes collision group.
+
+	.. function:: Priority GetPriority() const
+
+		Returns the scene nodes priority.
+
+	.. function:: FrameID GetLastFrame() const
+
+		Returns the ID of the last frame for which the update function definitely finished.
+
+	.. function:: World *GetWorld() const
+
+		Returns the pointer to the world, but only after it is fully loaded and attached, which might take several frames. It will return nullptr otherwise.
+
+	.. function:: void AddChild(SceneNode *child)
+
+		The given child will be attached to this scene node. This means that this scene nodes transformations will also effect the childs transformations. Both scene nodes will keep their current transformation within the world.
+
+		.. admonition:: Example
+
+			.. code:: cpp
+
+				// Create the games first person camera
+				RN::Camera *camera = new RN::Camera();
+
+				// Create a spot light
+				RN::Light *spotLight = new RN::Light(RN::Light::Type::SpotLight);
+
+				// Attach the spot light to the camera
+				camera->AddChild(spotLight);
+
+				// Move the light a bit to the bottom right
+				spotLight->SetPosition(RN::Vector3(1.0f, -0.5f, 0.0f));
+
+				// Now move the camera and the light will just move with it
+				camera->TranslateLocal(RN::Vector3(0.0f, 0.0f, -2.0f));
+
+	.. function:: void RemoveChild(SceneNode *child)
+
+		If the given child is currently attached to the scene node, it will be detached. Both scene nodes will keep their transformation within the world.
+
+	.. function:: void RemoveFromParent()
+
+		Detaches the scene node from its parent if it has one. Both, this scene node and its parent will keep their transformation within the world.
+
+	.. function:: const Array *GetChildren() const
+
+		Returns the array of currently attached children. This might be empty if there is no child attached.
+
+	.. function:: SceneNode *GetParent() const
+
+		Returns the parent if the scene node has one, nullptr otherwise.
 
 	.. function:: void AddAttachment(SceneNodeAttachment *attachment)
 
@@ -199,13 +440,45 @@ Instance Methods
 
 	.. function:: Array *GetAttachments() const
 
-		Returns all attachments that of the receiver.
+		Returns all attachments of the receiver.
+
+	.. function:: void AddDependency(SceneNode *dependency)
+
+		Adds the given scene node as dependency. This will make sure that the dependency will be updated before this scene node.
+
+	.. function:: void RemoveDependency(SceneNode *dependency)
+
+		Removes the given dependency from the this scene nodes dependencies.
 
 	.. function:: bool CanUpdate(FrameID frame)
 
 		This method allows subclasses to defer their update until a later point in time. The World will repeatedly ask the scene node if it can update to the given frame, and only if it returns `true` will the :cpp:func:`Update <SceneNode::Update>` be invoked. For performance reasons, you are strongly encouraged to not override this method and instead use dependencies and/or priorities to alter the update time.
 
 		However, if you do override this method, call the superclasses implementation first and check its value before performing your own logic. Also make sure to not perform heavy tasks in this method since it may be called many times per frame.
+
+	.. function:: void ChildWillUpdate(SceneNode *child, ChangeSet changes)
+
+		This callback will be called before the given child is going to have the changes applied.
+
+	.. function:: void ChildDidUpdate(SceneNode *child, ChangeSet changes)
+
+		This callback will be called after the given child had the changes applied.
+		
+	.. function:: void WillAddChild(SceneNode *child)
+
+		This callback will be called before the given child is added to this scene node.
+
+	.. function:: void DidAddChild(SceneNode *child)
+
+		This callback will be called after the given child was added to this scene node.
+
+	.. function:: void WillRemoveChild(SceneNode *child)
+
+		This callback will be called before the given child is removed from this scene node.
+
+	.. function:: void DidRemoveChild(SceneNode *child)
+
+		This callback will be called after the given child was removed from this scene node.
 		
 Constants
 =========
