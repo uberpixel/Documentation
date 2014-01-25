@@ -495,10 +495,10 @@ Constants
 
 		Flags can be ORed together
 
-		* :code:`FlagDrawLate` The scene node will be rendered after all other scene nodes
-		* :code:`FlagStatic` The scene node won't receive update methods. This allows for potential fast paths of static objects and should be set for all that don't require their Update method to be invoked (they can still be moved around freely, the only limitation are updates)
-		* :code:`FlagHidden` The scene node and all its children will be culled away and not rendered
-		* :code:`FlagHideChildren` The scene nodes children will be culled
+		* :code:`DrawLate` The scene node will be rendered after all other scene nodes
+		* :code:`Static` The scene node won't receive update methods. This allows for potential fast paths of static objects and should be set for all that don't require their Update method to be invoked (they can still be moved around freely, the only limitation are updates)
+		* :code:`Hidden` The scene node and all its children will be culled away and not rendered
+		* :code:`HideChildren` The scene nodes children will be culled
 		 
 		.. seealso:: :cpp:func:`SetFlags`
 
@@ -506,11 +506,11 @@ Constants
 
 		A change set describes a set of one or more changes that were or will be applied to a scene node. Multiple changes might be ORed together
 
-		* :code:`ChangedGeneric` A generic change (can be anything BUT a change that has an explicit constant)
-		* :code:`ChangedFlags`  A change to the scene nodes flags
-		* :code:`ChangedPosition` A change to the scene nodes position, rotation or scale
-		* :code:`ChangedDependencies` A change to the scene nodes dependencies
-		* :code:`ChangedPriority` A change to the scene nodes priority
-		* :code:`ChangedParent` A change to the scene nodes parent
-		* :code:`ChangedAttachments` A change to the scene nodes attachments
-		* :code:`ChangedWorld` A change to the scene nodes world
+		* :code:`Generic` A generic change (can be anything BUT a change that has an explicit constant)
+		* :code:`Flags`  A change to the scene nodes flags
+		* :code:`Position` A change to the scene nodes position, rotation or scale
+		* :code:`Dependencies` A change to the scene nodes dependencies
+		* :code:`Priority` A change to the scene nodes priority
+		* :code:`Parent` A change to the scene nodes parent
+		* :code:`Attachments` A change to the scene nodes attachments
+		* :code:`World` A change to the scene nodes world
