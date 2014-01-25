@@ -278,8 +278,6 @@ Instance Methods
 
 		Allows to set one or more flags for the scene node.
 
-		.. seealso:: :cpp:type:`Flags`
-
 		.. admonition:: Example
 
 			.. code:: cpp
@@ -319,9 +317,7 @@ Instance Methods
 
 		This can be used to set an update priority for the scene node.
 		The default value is UpdateDontCare, but can be changed to schedule the scene nodes update earlier or later.
-
-		.. seealso:: :cpp:type:`Priority`
-
+		
 	.. function:: void SetAction(const std::function<>& action)
 
 		Sets the internal action to the given function. This allows creating actions for scene nodes without the need to subclass them (note though that you are strongly encouraged to create a proper subclass for performance reasons).

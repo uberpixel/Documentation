@@ -34,7 +34,7 @@ Modification
 ------------
 
 * :cpp:func:`SetModel(Model *model) <Entity::SetModel>`
-* :cpp:func:`SetSkeleton(class Skeleton *skeleton)<Entity::SetSkeleton>`
+* :cpp:func:`SetSkeleton(Skeleton *skeleton)<Entity::SetSkeleton>`
 * :cpp:func:`GetModel() <Entity::GetModel>`
 * :cpp:func:`GetSkeleton()<Entity::GetSkeleton>`
 
