@@ -64,6 +64,7 @@ Scene
 	docs/scene/rnentity.rst
 	docs/scene/rncamera.rst
 	docs/scene/rnlight.rst
+	docs/scene/rnbillboard.rst
 
 Misc
 ----
