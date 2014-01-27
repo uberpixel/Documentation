@@ -157,7 +157,70 @@ Instance Methods
 	.. function:: Array* GetShadowDepthCameras() const
 
 		Returns the cameras used for rendering the depth maps needed for the currently active shadows. Will be empty if shadows are not activated.
-		
+
+Structures
+==========
+
+ShadowSplit
+-----------
+
+.. class:: ShadowSplit
+
+	This structure holds the settings for a single parallel split shadow map split or depth cube map. Directional shadows usually have around four of these while spot and point light shadows only use one.
+
+	.. function:: ShadowSplit(size_t updateInterval=1, size_t updateOffset=0)
+
+		Initializes the structure with the given parameters.
+
+	.. member:: float biasFactor = 2.0
+
+		The polygon offset factor used for the shadow mapping to reduce shadow acne.
+
+	.. member:: float biasFactor = 512.0
+
+		The polygon offset unit used for the shadow mapping to reduce shadow acne.
+
+	.. member:: size_t updateInterval = 1
+
+		This is the interval in frames in which the shadow split is updated. The default value of 1 will update it every frame, while a value of 4 would only update every four frames.
+
+	.. member:: size_t updateOffset = 0
+
+		This an offset in frames used to shift the time of updating the split within the set updateInterval. This allows for example to have four splits each updated every four frames but all in a different frames. This can be used to reduce the work that has to be done within a single frame.
+
+ShadowParameter
+---------------
+
+.. class:: ShadowParameter
+
+	This structure holds the settings used for shadows. Directional shadows do need to have the shadowTarget camera set to the camera, the shadows should be seen in.
+	The default setup for directional shadows uses 4 splits with the first one updating every frame, the second and the third every 2 frames and the fourth only every three frames. This setup usually provides a good compromise of quality and speed, but with fast moving light or objects it can be desirable to update the splits every frame for a good appearance.
+
+	.. function:: ShadowParameter(size_t resolution=1024)
+
+		Initializes the structure with the given shadow map resolution and one split. This should be used for point and spot lights.
+
+	.. function:: ShadowParameter(Camera *target, size_t resolution = 1024)
+
+		Initializes the structure with the given shadowTarget camera and shadow map resolution. It also adds fours splits. This should be used for directional lights.
+
+	.. member:: size_t resolution = 1024
+
+		The depth map resolution used for the shadows. This value should be a power of two, a higher value will produce sharper shadows and should usually not be bigger than 4096.
+
+	.. member:: std::vector<ShadowSplit> splits
+
+		The shadow splits containing bias and update information for each split or cube map.
+
+	.. member:: float distanceBlendFactor = 0.05f
+
+		This factor between 0 and 1 is used for directional shadows to blend determine the distances for each split. A higher value will make the closer splits bigger and the ones further away smaller.
+		Internally it is used to blend between logarithmic and linear split distances.
+
+	.. member:: Camera *shadowTarget = nullptr
+
+		This is only used for directional shadows and specifies the camera they are set up for. It cannot be nullptr for directional shadows!
+
 Constants
 =========
 
