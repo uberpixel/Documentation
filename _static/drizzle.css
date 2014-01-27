@@ -39,6 +39,11 @@ body {
 	background-position-x: center;
 }
 
+.section {
+    padding-top: 50px;
+    margin-top: -50px;
+}
+
 div.document {
 	background-color: #f7f7f7;
 	text-align: left;
@@ -64,6 +69,7 @@ div.navbar {
 	background-image: -moz-linear-gradient(top, #5185b9 0%, #16355d 100%);
 	background-image: -ms-linear-gradient(top, #5185b9 0%, #16355d 100%);
 	box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	z-index: 1000;
 	position: fixed;
 	width: 100%;
 	height: 50px;
@@ -112,6 +118,8 @@ div.related ul li a:hover {
 div.sphinxsidebarwrapper {
 	padding: 0;
 	background-color: #f7f7f7;
+	width: inherit;
+	position: fixed;
 }
 
 div.sphinxsidebar {
