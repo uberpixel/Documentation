@@ -18,7 +18,7 @@ Overview
 
 .. inheritance_diagram::
 
-The Vector4 class provides a 4d floating point vector implementation. On systems with SIMD support,
+The Vector4 class provides a four component floating point vector implementation. On systems with SIMD support,
 Vector4 is aligned to 16 byte boundaries and uses optimized SSE/NEON code. Vector4 is trivially copyable.
 
 Tasks
@@ -30,9 +30,8 @@ Construction
 * :cpp:func:`Vector4() <Vector4::Vector4>`
 * :cpp:func:`Vector4(float n) <Vector4::Vector4>`
 * :cpp:func:`Vector4(float x, float y, float z, float w) <Vector4::Vector4>`
-* :cpp:func:`Vector4(const Vector4& other) explicit <Vector4::Vector4>`
-* :cpp:func:`Vector4(const Vector3& other, float w = 0.0f) explicit <Vector4::Vector4>`
 * :cpp:func:`Vector4(const Vector2& other, float z = 0.0f, float w = 0.0f) explicit <Vector4::Vector4>`
+* :cpp:func:`Vector4(const Vector3& other, float w = 0.0f) explicit <Vector4::Vector4>`
   
 Comparison
 ----------
@@ -97,10 +96,6 @@ Instance Methods
 	.. function:: Vector4(const Vector3& other, float w = 0.0f)
 
 		Initialized the `x` and `y` component to the `x`, and `y` components of the `other` vector and the `z` and `w` components to the `z` and `w` components respectively
-
-	.. function:: Vector4(const Vector4& other)
-
-		Initialized the `x`, `y`, `z` and `w` component to the `x`, `y`, `z` and `w` components of the `other` vector
 
 	.. function:: bool operator== (const Vector4& other) const
 

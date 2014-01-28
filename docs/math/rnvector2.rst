@@ -16,7 +16,7 @@ Vector2 class reference
 Overview
 ========
 
-The Vector2 class provides a 2d floating point vector implementation. Vector2 is trivially copyable.
+The Vector2 class provides a two component floating point vector implementation. Vector2 is trivially copyable.
 
 Tasks
 =====

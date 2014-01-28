@@ -18,7 +18,7 @@ Overview
 
 .. inheritance_diagram::
 
-The Vector3 class provides a 3d floating point vector implementation. Vector3 is trivially copyable.
+The Vector3 class provides a three component floating point vector implementation. Vector3 is trivially copyable.
 
 Tasks
 =====
