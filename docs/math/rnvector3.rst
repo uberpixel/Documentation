@@ -62,17 +62,18 @@ Binary operators
 Accessors
 ---------
 
-* :cpp:func:`Length() const <Vector3::Length>`
-* :cpp:func:`Dot(const Vector3& other) const <Vector3::Dot>`
-* :cpp:func:`Cross(const Vector3& other) const <Vector3::Cross>`
-* :cpp:func:`Distance(const Vector3& other) const <Vector3::Distance>`
-* :cpp:func:`Lerp(const Vector3& other, float factor) const <Vector3::Lerp>`
+* :cpp:func:`GetLength() const <Vector3::GetLength>`
+* :cpp:func:`GetDistance(const Vector3& other) const <Vector3::GetDistance>`
+* :cpp:func:`GetDotProduct(const Vector3& other) const <Vector3::GetDotProduct>`
+* :cpp:func:`GetCrossProduct(const Vector3& other) const <Vector3::GetCrossProduct>`
+* :cpp:func:`GetLerp(const Vector3& other, float factor) const <Vector3::GetLerp>`
 
  
 Mutation
 --------
 
 * :cpp:func:`Normalize(float n) <Vector3::Normalize>`
+* :cpp:func:`GetNormalized(float n) <Vector3::GetNormalized>`
   
 Instance Methods
 ================
@@ -171,23 +172,23 @@ Instance Methods
 
 		:return: Reference to the mutated vector
 
-	.. function:: float Length() const
+	.. function:: float GetLength() const
 
 		Returns the length of the vector
 
-	.. function:: float Dot(const Vector3& other) const
+	.. function:: float GetDistance(const Vector3& other) const
+
+		Returns the euclidean distance between this vector and the `other` vector
+
+	.. function:: float GetDotProduct(const Vector3& other) const
 
 		Returns the dot product of the vector and the `other` vector
 
-	.. function:: Vector3 Cross(const Vector3& other) const
+	.. function:: Vector3 GetCrossProduct(const Vector3& other) const
 
 		Returns the cross product of the vector and the `other` vector
 
-	.. function:: float Distance(const Vector3& other) const
-
-		Returns the distance between this vector and the `other` vector
-
-	.. function:: Vector3 Lerp(const Vector3& other, float factor) const
+	.. function:: Vector3 GetLerp(const Vector3& other, float factor) const
 
 		Linearly interpolates between this vector and the `other` vector by the given `factor` and returns the result
 
@@ -196,6 +197,12 @@ Instance Methods
 		Normalizes the vector to the constant `n`
 
 		:return: Reference to the mutated vector
+
+	.. function:: Vector3& GetNormalized(const float n)
+
+		Creates a normalized copy of the vector.
+
+		:return: Reference to a mutated copy of the vector
 
 Member
 ======

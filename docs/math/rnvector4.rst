@@ -62,15 +62,17 @@ Binary operators
 Accessors
 ---------
 
-* :cpp:func:`Length() const <Vector4::Length>`
-* :cpp:func:`Dot(const Vector4& other) const <Vector4::Dot>`
-* :cpp:func:`Cross(const Vector4& other) const <Vector4::Cross>`
+* :cpp:func:`GetLength() const <Vector4::GetLength>`
+* :cpp:func:`GetDistance(const Vector4& other) const <Vector4::GetDistance>`
+* :cpp:func:`GetDotProduct(const Vector4& other) const <Vector4::GetDotProduct>`
+* :cpp:func:`GetLerp(const Vector4& other) const <Vector4::GetLerp>`
 
  
 Mutation
 --------
 
 * :cpp:func:`Normalize(float n) <Vector4::Normalize>`
+* :cpp:func:`GetNormalized(float n) <Vector4::GetNormalized>`
   
 Instance Methods
 ================
@@ -165,23 +167,33 @@ Instance Methods
 
 		:return: Reference to the mutated vector
 
-	.. function:: float Length() const
+	.. function:: float GetLength() const
 
 		Returns the length of the vector
 
-	.. function:: float Dot(const Vector4& other) const
+	.. function:: float GetDistance(const Vector4& other) const
+
+		Returns the euclidean distance between this vector and the `other` vector
+
+	.. function:: float GetDotProduct(const Vector4& other) const
 
 		Returns the dot product of the vector and the `other` vector
 
-	.. function:: Vector4 Cross(const Vector4& other) const
+	.. function:: Vector4 GetLerp(const Vector4& other) const
 
-		Returns the cross product of the vector and the `other` vector
+		Linearly interpolates between this vector and the `other` vector by the given `factor` and returns the result
 
 	.. function:: Vector4& Normalize(const float n)
 
 		Normalizes the vector to the constant `n`
 
 		:return: Reference to the mutated vector
+
+	.. function:: Vector4& GetNormalized(const float n)
+
+		Creates a normalized copy of the vector.
+
+		:return: Reference to a mutated copy of the vector
 
 Member
 ======
