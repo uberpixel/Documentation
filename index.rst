@@ -47,6 +47,7 @@ Math
 	docs/math/rnvector2.rst
 	docs/math/rnvector3.rst
 	docs/math/rnvector4.rst
+	docs/math/rnmatrix.rst
 
 Objects
 -------

@@ -204,8 +204,8 @@ Instance Methods
 
 		:return: Reference to a mutated copy of the vector
 
-Member
-======
+Members
+=======
 
 .. class:: Vector3
 
