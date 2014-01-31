@@ -22,7 +22,7 @@ The quaternion class implements a quaternion meant for storing rotations. The qu
 Quaternions are internally used for all rotations and offer interfaces to convert from and to yaw-pitch-roll angles, axis-angle and rotation matrix.
 Yaw-pitch-roll angles are applied as y-x-z, meaning the yaw rotation around the y axis is being applied first, the pitch rotation around the new (with the previous rotation applied) x axis second and the roll rotation around the new z axis last.
 Rotations represented by quaternions can be combined by multiplying the quaternions, the result is that of the first quaternions rotation applied first and then the seconds.
-Also the + and - operators can be used to add or substract euler angles to or from the quaternion as if it was an euler angle itself.
+Also the + and - operators can be used to add or subtract euler angles to or from the quaternion as if it was an euler angle itself.
 
 Tasks
 =====
@@ -86,9 +86,9 @@ Mutation
 --------
 
 * :cpp:func:`Normalize() <Quaternion::Normalize>`
-* :cpp:func:`GetNormalized() <Quaternion::GetNormalized> const`
+* :cpp:func:`GetNormalized() const <Quaternion::GetNormalized>`
 * :cpp:func:`Conjugate() <Quaternion::Conjugate>`
-* :cpp:func:`GetConjugated() <Quaternion::GetConjugated> const`
+* :cpp:func:`GetConjugated() const <Quaternion::GetConjugated>`
 
 
 Utility
@@ -130,114 +130,156 @@ Instance Methods
 	.. function:: static Matrix WithAxisAngle(const Vector4& axisangle)
 
 		Returns a quaternion initialized with the rotation given as axis values and an angle in degrees.
-	
 
+	.. function:: static Matrix WithLerpSpherical(const Quaternion& start, const Quaternion& end, float factor)
 
-* :cpp:func:`WithLerpSpherical(const Quaternion& start, const Quaternion& end, float factor) <Quaternion::WithLerpSpherical>`
-* :cpp:func:`WithLerpLinear(const Quaternion& start, const Quaternion& end, float factor) <Quaternion::WithLerpLinear>`
-* :cpp:func:`WithLookAt(const Vector3& dir, const Vector3& up=Vector3(0.0f, 1.0f, 0.0f), bool forceup=false) <Quaternion::WithLookAt>`
+		Returns a quaternion that is the result of the spherical linear interpolation between start and end with factor being between 0 and 1.
 
+	.. function:: static Matrix WithLerpLinear(const Quaternion& start, const Quaternion& end, float factor)
 
-	.. function:: bool operator== (const Matrix& other) const
+		Returns a quaternion that is the result of the linear interpolation between start and end with factor being between 0 and 1.
 
-		Compares the matrix against the other and returns `true` if they are deemed equal.
+	.. function:: static Matrix WithLookAt(const Vector3& dir, const Vector3& up, bool forceup)
+
+		Returns a quaternion that represents the roation from the direction given by dir, with the up vector defined by up. As the up vector may cannot be kept exactly for the given direction, it usually does not, but if forceup is set to true, the given up vector will be guaranteed and instead the dir is not.
+
+	.. function:: bool operator== (const Quaternion& other) const
+
+		Compares the quaternion against the other and returns `true` if they are deemed equal.
 		This function is equivalent to calling `IsEqual(other, k::EpsilonFloat)`
 
-	.. function:: bool operator!= (const Matrix& other) const
+	.. function:: bool operator!= (const Quaternion& other) const
 
-		Compares the matrix against the other and returns `true` if they are deemed unequal.
+		Compares the quaternion against the other and returns `true` if they are deemed unequal.
 		This function is equivalent to calling `!IsEqual(other, k::EpsilonFloat)`
 
-	.. function:: bool IsEqual(const Matrix& other, float epsilon) const
+	.. function:: bool IsEqual(const Quaternion& other, float epsilon) const
 
-		Compares the matrix against the other using the provided epsilon. The function will subtract
+		Compares the quaternion against the other using the provided epsilon. The function will subtract
 		each component of the respective component of the other vector and compares them against the delta.
 		If one exceeds the delta, the two vectors are deemed unequal and the function returns false.
 
-	.. function:: Matrix operator* (const Matrix& other) const
+	.. function:: Matrix operator+ (const Quaternion& other) const
 
-		Returns a new matrix which is the result of the matrix multiplication of `this` and the `other` matrix.
+		Returns a new quaternion which is the result of adding other to the receiver.
 
-	.. function:: Vector3 operator* (const Vector3& other) const
+	.. function:: Matrix operator- (const Quaternion& other) const
 
-		Returns a new vector which is the vector transformed with the matrix, achieved by assuming the vectors missing fourth component to be 1 and multiplying the matrix with the vector.
+		Returns a new quaternion which is the result of subtracting other from the receiver.
 
-	.. function:: Vector4 operator* (const Vector4& other) const
+	.. function:: Matrix operator* (const Quaternion& other) const
 
-		Returns a new vector which is the vector transformed with the matrix by multiplying it with the vector.
+		Returns a new quaternion which is the result of multiplying other to the receiver.
 
-	.. function:: Vector4& operator*= (const Vector4& other)
+	.. function:: Matrix operator* (const float n) const
 
-		Multiplies this matrix with the `other` matrix.
+		Returns a new quaternion which is the result of multiplying the quaternion with the real number n. This is just a multiplication of each component with n.
 
-		:return: Reference to the mutated vector
+	.. function:: Matrix operator/ (const Quaternion& other) const
+
+		Returns a new quaternion which is the result of dividing the receiver by other.
+
+	.. function:: Matrix operator/ (const float n) const
+
+		Returns a new quaternion which is the result of dividing each component of the receiver by n.
+
+	.. function:: Matrix operator+= (const Quaternion& other)
+
+		Adds other to the receiver.
+
+	.. function:: Matrix operator-= (const Quaternion& other)
+
+		Subtracts other from the receiver.
+
+	.. function:: Matrix operator*= (const Quaternion& other)
+
+		Multiplies other to the receiver.
+
+	.. function:: Matrix operator*= (const float n)
+
+		Multiplies all parts of the receiver with n.
+
+	.. function:: Matrix operator/= (const Quaternion& other)
+
+		Divides the receiver by other.
+
+	.. function:: Matrix operator/= (const float n)
+
+		Each component of the receiver is divided by n.
+
+	.. function:: Matrix operator+ (const Vector3& other) const
+
+		Returns a new quaternion which is the result of converting the receiver to euler angles, add other component wise and convert the result back to a quaternion. This behavior is there for ease of use, as many people feel more comfortable with euler angles than directly dealing with quaternions.
+
+	.. function:: Matrix operator- (const Vector3& other) const
+
+		The same as the + operator but subtracting the euler angles instead of adding.
+
+	.. function:: Matrix operator+= (const Vector3& other)
+
+		Changes the quaternion to the result of converting the receiver to euler angles, add other component wise and convert the result back to a quaternion. This behavior is there for ease of use, as many people feel more comfortable with euler angles than directly dealing with quaternions.
+
+	.. function:: Matrix operator-= (const Vector3& other)
+
+		The same as the += operator but subtracting the euler angles instead of adding.
 
 	.. function:: Vector3 GetEulerAngle() const
 
-		Returns a vector with yaw-pitch-roll angles interpreting the matrix as a rotation matrix without any modifications.
+		Returns a vector with yaw-pitch-roll angles derived from the quaternion.
 
 	.. function:: Vector4 GetAxisAngle() const
 
-		Returns a vector with axis-angle representation interpreting the matrix as a rotation matrix without any modifications.
+		Returns a vector with axis-angle representation of the rotation represented by the quaternion.
 
-	.. function:: Quaternion GetQuaternion() const
+	.. function:: Matrix GetRotationMatrix() const
 
-		Returns a rotation quaternion interpreting the matrix as a rotation matrix without any modifications.
+		Returns a rotation matrix of the rotation represented by the quaternion.
 
-	.. function:: float GetDeterminant() const
+	.. function:: float GetLength() const
 
-		Returns the determinant of the matrix. The determinant is a single value providing some information about the matrix and is for example used to calculate the inverse matrix.
+		Returns the euclidean length of the quaternion.
 
-	.. function:: void Translate(const Vector3& translation)
+	.. function:: float GetDotProduct(const Quaternion& other) const
 
-		Multiplies the matrix with a matrix representing the given translation.
+		Returns the dot product of the two quaternions multiplying them component wise and creating the sum of the results.
 
-	.. function:: void Translate(const Vector4& translation)
+	.. function:: Quaternion GetLerpSpherical(const Quaternion& other, float factor) const
 
-		Multiplies the matrix with a matrix representing the given translation.
+		Returns the result of the spherical linear interpolation between this and other with the factor between 0 and 1.
 
-	.. function:: void Scale(const Vector3& scaling)
+	.. function:: Quaternion GetLerpLinear(const Quaternion& other, float factor) const
 
-		Multiplies the matrix with a matrix representing the given scaling.
+		Returns the result of the linear interpolation between this and other with the factor between 0 and 1.
 
-	.. function:: void Scale(const Vector4& scaling)
+	.. function:: void Normalize()
 
-		Multiplies the matrix with a matrix representing the given scaling.
+		Normalizes the quaternion by dividing its components by its length. A quaternion representing a rotation should always be normalized, but using the build in functions, this is usually taken care of.
 
-	.. function:: void Rotate(const Vector3& rotation)
+	.. function:: Quaternion GetNormalized()
 
-		Multiplies the matrix with a matrix representing the given rotation interpreted as yaw-pitch-roll angles in degrees.
+		Returns a copy of the receiver and normalizes it by dividing its components by its length.
 
-	.. function:: void Rotate(const Vector3& rotation)
+	.. function:: void Conjugate()
 
-		Multiplies the matrix with a matrix representing the given rotation interpreted as an axis with an angle in degrees.
+		Conjugates the quaternion. The conjugate means the the imaginary parts (`x`, `y` and `z`) are inverted.
 
-	.. function:: void Rotate(const Quaternion& rotation)
+	.. function:: Quaternion GetConjugated()
 
-		Multiplies the matrix with a matrix representing the given rotation from the quaternion.
+		Returns a the conjugate of the quaternion.
 
-	.. function:: void Transpose()
+	.. function:: Vector3 GetRotatedVector(const Vector3& vec) const
 
-		Transposes the matrix, this means that its previous rows are now columns. So the value from m[1] (first column, second row) is for example in m[4] (second column, first row) afterwards.
-		For rotation and scaling matrices and other orthogonal matrices this is the same as the inverse.
+		Returns a new vector containing the result of the given vector being rotated by the rotation represented by the quaternion.
 
-	.. function:: Matrix GetTransposed()
+	.. function:: Vector4 GetRotatedVector(const Vector4& vec) const
 
-		Returns the transposed matrix, this means that its rows are the new matrices columns. So the value from m[1] (first column, second row) is for example in m[4] (second column, first row) afterwards.
-		For rotation and scaling matrices and other orthogonal matrices this is the same as the inverse.
+		Returns a new vector containing the result of the given vector being rotated by the rotation represented by the quaternion.
 
-	.. function:: void Inverse() const
-
-		Inverts this matrix.
-
-	.. function:: Matrix GetInverse() const
-
-		Returns the inverse of this matrix. The inverse is defined as the matrix to multiply the receiver with to get the identity matrix.
 
 Members
 =======
 
-.. class:: Matrix
+.. class:: Quaternion
 
 	.. member:: float x
 
