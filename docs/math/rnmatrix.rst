@@ -1,4 +1,4 @@
-.. _renvector4.rst:
+.. _renmatrix.rst:
 
 ***********************
 Matrix class reference
@@ -10,7 +10,7 @@ Matrix class reference
 +---------------------+--------------------------------------+
 |   **Availability**  |              Rayne 1.0               |
 +---------------------+--------------------------------------+
-| **Declared in**     | RNMatrix.h                           |
+| **Declared in**     | RNMatrixQuaternion.h                 |
 +---------------------+--------------------------------------+
 
 Overview
@@ -18,7 +18,7 @@ Overview
 
 .. inheritance_diagram::
 
-The Matrix class provides a 4x4 column major matrix implementation. This class is mostly used to store transformation (translation, rotation and scaling) information for scene nodes needed for rendering and parent-child relations.
+The Matrix class provides a 4x4 column major matrix implementation. This class is mostly used to store transformation (translation, rotation and scaling) information for scene nodes, needed for rendering and parent-child relations.
 SIMD will be used if supported.
 
 Tasks

@@ -48,6 +48,7 @@ Math
 	docs/math/rnvector3.rst
 	docs/math/rnvector4.rst
 	docs/math/rnmatrix.rst
+	docs/math/rnquaternion.rst
 
 Objects
 -------
