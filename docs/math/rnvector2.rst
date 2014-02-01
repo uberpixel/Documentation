@@ -60,7 +60,7 @@ Accessors
 ---------
 
 * :cpp:func:`GetLength() const <Vector2::GetLength>`
-* :cpp:func:`GetDistance(const Vector3& other) const <Vector3::GetDistance>`
+* :cpp:func:`GetDistance(const Vector2& other) const <Vector2::GetDistance>`
 * :cpp:func:`GetDotProduct(const Vector2& other) const <Vector2::GetDotProduct>`
 * :cpp:func:`GetCrossProduct() const <Vector2::GetCrossProduct>`
 * :cpp:func:`GetLerp(const Vector2& other, float factor) const <Vector2::GetLerp>`
