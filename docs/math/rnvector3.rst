@@ -64,6 +64,7 @@ Accessors
 
 * :cpp:func:`GetLength() const <Vector3::GetLength>`
 * :cpp:func:`GetDistance(const Vector3& other) const <Vector3::GetDistance>`
+* :cpp:func:`GetSquaredDistance(const Vector3& other) const <Vector3::GetSquaredDistance>`
 * :cpp:func:`GetDotProduct(const Vector3& other) const <Vector3::GetDotProduct>`
 * :cpp:func:`GetCrossProduct(const Vector3& other) const <Vector3::GetCrossProduct>`
 * :cpp:func:`GetLerp(const Vector3& other, float factor) const <Vector3::GetLerp>`
@@ -179,6 +180,10 @@ Instance Methods
 	.. function:: float GetDistance(const Vector3& other) const
 
 		Returns the euclidean distance between this vector and the `other` vector
+
+	.. function:: float GetSquaredDistance(const Vector3& other) const
+
+		Returns the squared euclidean distance between this vector and the `other` vector, this is faster than GetDistance as there is no need for a square root.
 
 	.. function:: float GetDotProduct(const Vector3& other) const
 
