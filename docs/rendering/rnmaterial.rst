@@ -322,7 +322,7 @@ Instance Methods
 Constants
 =========
 
-.. class:: SceneNode 
+.. class:: Material 
 
 	.. type:: Override
 
