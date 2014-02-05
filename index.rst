@@ -70,6 +70,13 @@ Scene
 	docs/scene/rnlight.rst
 	docs/scene/rnbillboard.rst
 
+Rendering
+---------
+.. toctree::
+	:maxdepth: 1
+
+	docs/rendering/rnmaterial.rst
+
 Misc
 ----
 .. toctree::
