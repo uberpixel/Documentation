@@ -82,6 +82,7 @@ Misc
 .. toctree::
 	:maxdepth: 1
 	
+	docs/misc/rnringbuffer.rst
 	docs/misc/rnlockfreeringbuffer.rst
 
 Misc

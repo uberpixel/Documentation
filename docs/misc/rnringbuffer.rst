@@ -1,4 +1,4 @@
-.. _rnlockfreeringbuffer.rst
+.. _rnringbuffer.rst
 
 *********************
 ring_buffer class reference
@@ -31,19 +31,70 @@ Instance Methods
 
 		Returns the maximum capacity of the receiver.
 
-	.. function:: bool push(T&& value)
+	.. function:: size_type size() const
 
-		Attempts to insert the given value into the receiver. If the operation fails because the receiver was already full, the operation will return `false` and no state is changed.
+		Returns the size of the receiver
 
-	.. function:: bool pop(T& value)
+	.. function:: void push(const_reference& value)
 
-		Attempts to move the first un-read value from the receiver into value. If the receiver was empty, the method will return `false` and the passed value is not altered in any way.
+		Copies the value to the end of the receiver, potentially overriding the beginning
 
-	.. function:: bool was_empty() const
+	.. function:: void push(value_type&& value)
 
-		Returns `true` if the receiver was empty when the operation ran.
+		Moves the value to the end of the receiver, potentially overriding the beginning
 
-	.. function:: bool is_lock_free() const
+	.. function:: void pop()
 
-		Due to C++11's `std::atomic<>` behaviours, it is not guaranteed that a given implementation uses atomic instructions found in the targeted CPU or if it internally uses locks to guarantee atomicity. All modern CPUs and compiler should support creating lock free `std::atomic<size_t>` instances and this method should return always `true` on all targets.
-		
+		Removes the value at the beginning of the receiver
+
+	.. function:: reference operator [](size_type index)
+
+		Returns the element at the given index, where index 0 is the first element in the receiver
+
+	.. function:: const_reference operator [](size_type index) const
+
+		Returns the element at the given index, where index 0 is the first element in the receiver
+
+	.. function:: reference at(size_type index)
+
+		Returns the element at the given index, where index 0 is the first element in the receiver
+
+	.. function:: const reference at(size_type index) const
+
+		Returns the element at the given index, where index 0 is the first element in the receiver
+
+	.. function:: reference front()
+
+		Returns the first element in the receiver
+
+	.. function:: const_reference back() const
+
+		Returns the last element in the receiver
+
+	.. function:: reference back()
+
+		Returns the last element in the receiver
+
+	.. function:: const_reference back() const
+
+		Returns the last element in the receiver
+
+	.. function:: iterator begin()
+
+		Returns an bidirectional iterator to the first element. 
+
+		.. note:: that iterators don't consume the elements in the ringbuffer, ie, they are still in the ringbuffer
+
+	.. function:: const_iterator begin() const
+
+		Returns an bidirectional const iterator to the first element. 
+
+		.. note:: that iterators don't consume the elements in the ringbuffer, ie, they are still in the ringbuffer
+
+	.. function:: iterator end()
+
+		Returns a bidirectional iterator to the element one past the last element. Even though this is an iterator to a ringbuffer, the returned iterator will point to an invalid element.
+
+	.. function:: const_iterator end()
+
+		Returns a bidirectional const iterator to the element one past the last element. Even though this is an iterator to a ringbuffer, the returned iterator will point to an invalid element.
