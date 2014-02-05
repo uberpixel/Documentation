@@ -290,7 +290,7 @@ Constants
 Macros
 ======
 
-.. c:macro:: RNDefineMeta(cls, super)
+.. c:macro:: RNDeclareMeta(cls, super)
 
 	Adds required prototypes for the runtime type system to the given class. Must be added within the class definition.
 
@@ -309,7 +309,7 @@ Macros
 				RNDefineMeta(MyClass, Object)
 			};
 
-.. c:macro:: RNDeclareMeta(cls)
+.. c:macro:: RNDefineMeta(cls)
 
 	Adds required implementations for the runtime type system to the given class. MUST be added within a .cpp file due to the way linking works.
 
