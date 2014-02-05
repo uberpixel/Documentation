@@ -4,6 +4,29 @@
 <!DOCTYPE html>
 {%- endblock -%}
 
+{%- macro sidebar_rayne() %}
+      {%- if render_sidebar %}
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+          {%- block sidebarlogo %}
+          {%- if logo %}
+            <p class="logo"><a href="{{ pathto(master_doc) }}">
+              <img class="logo" src="{{ pathto('_static/' + logo, 1) }}" alt="Logo"/>
+            </a></p>
+          {%- endif %}
+          {%- endblock %}
+          {#- old style sidebars: using blocks -- should be deprecated #}
+          {%- block sidebartoc %}
+          {%- include "localtoc.html" %}
+          {%- endblock %}
+          {%- block sidebarsearch %}
+          {%- include "searchbox.html" %}
+          {%- endblock %}
+        </div>
+      </div>
+      {%- endif %}
+{%- endmacro %}
+
 {# put the sidebar before the body #}
 {% block sidebar1 %}{% endblock %}
 {% block sidebar2 %}{% endblock %}
@@ -14,7 +37,7 @@
 {%- block document %}
   <div class="documentwrapper">
     {%- if render_sidebar %}
-      {{ sidebar() }}
+      {{ sidebar_rayne() }}
       <div class="bodywrapper">
     {%- endif %}
         <div class="body">
