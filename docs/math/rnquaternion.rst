@@ -16,8 +16,6 @@ Quaternion class reference
 Overview
 ========
 
-.. inheritance_diagram::
-
 The quaternion class implements a quaternion meant for storing rotations. The quaternions real part is represented by its `w` component and the three imaginary parts by the `x`, `y` and `z` components.
 Quaternions are internally used for all rotations and offer interfaces to convert from and to yaw-pitch-roll angles, axis-angle and rotation matrix.
 Yaw-pitch-roll angles are applied as y-x-z, meaning the yaw rotation around the y axis is being applied first, the pitch rotation around the new (with the previous rotation applied) x axis second and the roll rotation around the new z axis last.

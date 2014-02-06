@@ -16,8 +16,6 @@ Color class reference
 Overview
 ========
 
-.. inheritance_diagram::
-
 The Color class provides a four component floating point rgba color implementation.
 
 Tasks

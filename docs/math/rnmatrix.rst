@@ -16,8 +16,6 @@ Matrix class reference
 Overview
 ========
 
-.. inheritance_diagram::
-
 The Matrix class provides a 4x4 column major matrix implementation. This class is mostly used to store transformation (translation, rotation and scaling) information for scene nodes, needed for rendering and parent-child relations.
 SIMD will be used if supported.
 

@@ -1,8 +1,8 @@
-.. _rnringbuffer.rst
+.. _rnringbuffer.rst:
 
-*********************
+***************************
 ring_buffer class reference
-*********************
+***************************
 
 .. namespace:: RN
 .. namespace:: stl

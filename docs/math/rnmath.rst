@@ -1,4 +1,4 @@
-.. _rnconstants.rst:
+.. _rnmath.rst:
 
 **********************
 General math functions

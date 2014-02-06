@@ -1,8 +1,8 @@
-.. _rnlockfreeringbuffer.rst
+.. _rnlockfreeringbuffer.rst:
 
-*********************
+*************************************
 lock_free_ring_buffer class reference
-*********************
+*************************************
 
 .. namespace:: RN
 .. namespace:: stl

@@ -16,8 +16,6 @@ Vector4 class reference
 Overview
 ========
 
-.. inheritance_diagram::
-
 The Vector4 class provides a four component floating point vector implementation. On systems with SIMD support,
 Vector4 is aligned to 16 byte boundaries and uses optimized SSE/NEON code. Vector4 is trivially copyable.
 

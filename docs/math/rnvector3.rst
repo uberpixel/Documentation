@@ -16,8 +16,6 @@ Vector3 class reference
 Overview
 ========
 
-.. inheritance_diagram::
-
 The Vector3 class provides a three component floating point vector implementation. Vector3 is trivially copyable.
 
 Tasks
