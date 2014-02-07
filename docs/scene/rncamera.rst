@@ -91,6 +91,9 @@ Rendering
 * :cpp:func:`GetAspectRatio() const <Camera::GetAspectRatio>`
 * :cpp:func:`GetClipNear() const <Camera::GetClipNear>`
 * :cpp:func:`GetClipFar() const <Camera::GetClipFar>`
+* :cpp:func:`GetFogNear() const <Camera::GetFogNear>`
+* :cpp:func:`GetFogFar() const <Camera::GetFogFar>`
+* :cpp:func:`GetFogColor() const <Camera::GetFogColor>`
 * :cpp:func:`GetAmbientColor() const <Camera::GetAmbientColor>`
 * :cpp:func:`GetClipPlane() const <Camera::GetClipPlane>`
 
@@ -304,6 +307,18 @@ Instance Methods
 	.. function:: float GetClipFar() const
 
 		Return the far clip plane of the receiver
+
+	.. function:: float GetFogFar() const
+
+		Returns the currently set far point of the fog, ie where the fog becomes completely opaque
+
+	.. function:: float GetFogNear() const
+
+		Returns the currently set near point of the fog, ie the distance where fog starts to become visible
+
+	.. function:: const Color &GetFogColor() const
+
+		Returns the fog color of the receiver. To enable fog rendering, you also need to set the `Flags::UseFog` flag.
 
 	.. function:: const Color &GetAmbientColor() const
 
