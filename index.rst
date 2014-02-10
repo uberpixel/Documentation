@@ -51,6 +51,7 @@ Math
 	docs/math/rnquaternion.rst
 	docs/math/rncolor.rst
 	docs/math/rnplane.rst
+	docs/math/rnaabb.rst
 
 Objects
 -------
