@@ -65,6 +65,7 @@ Scene
 .. toctree::
 	:maxdepth: 1
 	
+	docs/scene/rnworld.rst
 	docs/scene/rnscenenode.rst
 	docs/scene/rnentity.rst
 	docs/scene/rncamera.rst
