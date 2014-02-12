@@ -1,4 +1,4 @@
-.. _rndefines.rst:
+.. _rnbase.rst:
 
 ********************
 Data types reference

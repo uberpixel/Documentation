@@ -36,6 +36,7 @@ Core
 	:maxdepth: 1
 
 	docs/core/rntypes.rst
+	docs/core/rndefines.rst
 	docs/core/rnkernel.rst
 	docs/core/rnmemory.rst
 
