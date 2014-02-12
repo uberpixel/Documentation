@@ -67,6 +67,7 @@ Scene
 	
 	docs/scene/rnworld.rst
 	docs/scene/rnworldattachment.rst
+	docs/scene/rnworldcoordinator.rst
 	docs/scene/rnscenenode.rst
 	docs/scene/rnentity.rst
 	docs/scene/rncamera.rst
