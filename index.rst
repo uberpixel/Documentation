@@ -66,6 +66,7 @@ Scene
 	:maxdepth: 1
 	
 	docs/scene/rnworld.rst
+	docs/scene/rnworldattachment.rst
 	docs/scene/rnscenenode.rst
 	docs/scene/rnentity.rst
 	docs/scene/rncamera.rst
