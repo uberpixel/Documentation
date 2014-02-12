@@ -45,7 +45,7 @@ Driving the world
 -----------------
 
 * :cpp:func:`virtual Update(float delta) <World::Update>`
-* :cpp:func:`virtual DidUpdateToFrame(FrameID frame) <World::UpdatedToFrame>`
+* :cpp:func:`virtual DidUpdateToFrame(FrameID frame) <World::DidUpdateToFrame>`
 
 Handling scene nodes
 --------------------
@@ -54,6 +54,12 @@ Handling scene nodes
 * :cpp:func:`AddSceneNode(SceneNode *node) <World::AddSceneNode>`
 * :cpp:func:`RemoveSceneNode(SceneNode *node) <World::RemoveSceneNode>`
 * :cpp:func:`DropSceneNodes() <World::DropSceneNodes>`
+
+Attachments
+-----------
+
+* :cpp:func:`AddAttachment(WorldAttachment *attachment) <World::AddAttachment>`
+* :cpp:func:`RemoveAttachment(WorldAttachment *attachment) <World::RemoveAttachment>`
 
 Loading and Saving
 ------------------
@@ -120,6 +126,14 @@ Instance Methods
 		Removes all scene nodes currently tracked by the world.
 
 		.. seealso:: :cpp:func:`World::SetReleaseSceneNodesOnDestruction`
+
+	.. function:: void AddAttachment(WorldAttachment *attachment)
+
+		Adds the given world attachment to the world
+
+	.. function:: void RemoveAttachment(WorldAttachment *attachment)
+
+		Removes the given world attachment from the world
 
 	.. function:: void LoadOnThread(Thread *thread)
 
