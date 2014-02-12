@@ -81,6 +81,7 @@ Rendering
 
 	docs/rendering/rnmaterial.rst
 	docs/rendering/rnshader.rst
+	docs/rendering/rnshaderprogram.rst
 
 Misc
 ----
