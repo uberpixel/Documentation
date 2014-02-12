@@ -56,3 +56,20 @@ Instance Methods
 	.. function:: World *GetWorld() const
 
 		Returns the currently managed world.
+
+Messages
+========
+
+.. type:: kRNWorldCoordinatorWillBeginLoadingMessage
+
+	Send by the world coordinator when it starts loading a new world. The object is the world being loaded and the info dictionary is nullptr.
+
+.. type:: kRNWorldCoordinatorDidFinishLoadingMessage
+
+	Send by the world coordinator when it finishes loading a new world. The object is the world that has been loaded and the info dictionary is nullptr.
+
+.. type:: kRNWorldCoordinatorDidStepWorldMessage
+
+	Send by the world coordinator after updating the world but before rendering it. The object is the currently active world.
+
+
