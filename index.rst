@@ -30,12 +30,12 @@ Guides
 API Reference
 =============
 
-Base
+Core
 ----
 .. toctree::
 	:maxdepth: 1
 
-	docs/rntypes.rst
+	docs/core/rntypes.rst
 
 Math
 ----
@@ -58,7 +58,7 @@ Objects
 .. toctree::
 	:maxdepth: 1
 	
-	docs/rnobject.rst
+	docs/objects/rnobject.rst
 
 Scene
 -----
