@@ -80,6 +80,7 @@ Rendering
 	:maxdepth: 1
 
 	docs/rendering/rnmaterial.rst
+	docs/rendering/rnshader.rst
 
 Misc
 ----
