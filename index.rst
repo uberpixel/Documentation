@@ -37,6 +37,7 @@ Core
 
 	docs/core/rntypes.rst
 	docs/core/rnkernel.rst
+	docs/core/rnmemory.rst
 
 Math
 ----
