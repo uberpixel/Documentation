@@ -36,6 +36,7 @@ Core
 	:maxdepth: 1
 
 	docs/core/rntypes.rst
+	docs/core/rnkernel.rst
 
 Math
 ----
