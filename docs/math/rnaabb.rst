@@ -40,7 +40,7 @@ Binary operators
 Mutation
 --------
 
-* :cpp:func:`Rotate(const Quaternion& rotation) <AABB::Rotate>`
+* :cpp:func:`SetRotation(const Quaternion& rotation) <AABB::SetRotation>`
 
 Checks
 ------
@@ -60,7 +60,7 @@ Instance Methods
 
 	.. function:: AABB(const Vector3 &min, const Vector3 &max)
 
-		Expects min and max as positions in world space and initializes the position to be exactly in between those and sets the extends accordingly.
+		Expects min and max as positions in world scale relative to the position of the AABB and initializes minExtend and maxExtend with the minimum/maximum of the given values for each axis.
 
 	.. function:: AABB(const Vector3 &pos, const float radius)
 
@@ -78,15 +78,15 @@ Instance Methods
 
 		Keeps the bounding boxes position but scales the extends to fit this and the other AABB.
 
-		:return: Reference to the mutated color
+		:return: Reference to the mutated AABB
 
 	.. function:: AABB& operator*= (const Vector3& other)
 
 		Scales the bounding boxes extends with the vector.
 
-		:return: Reference to the mutated color
+		:return: Reference to the mutated AABB
 
-	.. function:: void Rotate(const Quaternion& rotation)
+	.. function:: void SetRotation(const Quaternion& rotation)
 
 		Rotates the bounding box. This will not change the position but scale the extends to fit the unrotated bounding box as if it was rotated.
 

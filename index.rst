@@ -56,6 +56,7 @@ Math
 	docs/math/rnquaternion.rst
 	docs/math/rncolor.rst
 	docs/math/rnplane.rst
+	docs/math/rnsphere.rst
 	docs/math/rnaabb.rst
 
 Objects
