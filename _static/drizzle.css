@@ -487,6 +487,9 @@ dl.member > dt,
 dl.type > dt,
 dl.class > dt {
 	color: #40197e;
+	
+	padding-top: 50px;
+	margin-top: -50px;
 }
 
 dl.function > dt > .descname,
