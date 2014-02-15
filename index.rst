@@ -38,6 +38,7 @@ Core
 	docs/core/rntypes.rst
 	docs/core/rndefines.rst
 	docs/core/rnkernel.rst
+	docs/core/rnapplication.rst
 	docs/core/rnmemory.rst
 	docs/core/rnsettings.rst
 
