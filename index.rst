@@ -25,7 +25,7 @@ Guides
 .. toctree::
 	:maxdepth: 1
 	
-	guides/getting_started.rst
+	guides/anatomy.rst
 
 API Reference
 =============
