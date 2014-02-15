@@ -93,7 +93,7 @@ Instance Methods
 
 		Creates a new shader object without any shader sources attached to it. You must attach at least a vertex and fragment shader source before rendering with the shader.
 
-	..function:: Shader(const std::string &file)
+	.. function:: Shader(const std::string &file)
 
 		Creates a new shader object using the given file name as file base name to deduce shader files to automatically attach to the shader.
 
@@ -159,7 +159,7 @@ Instance Methods
 
 	.. function:: std::string GetFileHash() const
 
-		Returns the file hash that identifies the shader. The structure and content of the hash may change in the future, so the returned format should not be depended on. In general, using this function is rarely useful and should probably not be called.
+		Returns the file hash that identifies the shader. The structure and content of the hash may change in the future, so the returned format should not be depended on. In general, using this function is rarely useful and it should probably not be called.
 
 Constants
 =========
