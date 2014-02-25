@@ -65,6 +65,7 @@ Objects
 	:maxdepth: 1
 	
 	docs/objects/rnobject.rst
+	docs/objects/rnthread.rst
 
 Scene
 -----
