@@ -65,7 +65,6 @@ Objects
 	:maxdepth: 1
 	
 	docs/objects/rnobject.rst
-	docs/objects/rnthread.rst
 
 Scene
 -----
@@ -98,6 +97,17 @@ Assets
 
 	docs/assets/rnresourcecoordinator.rst
 	docs/assets/rnresourceloader.rst
+
+System
+------
+
+.. toctree::
+	:maxdepth: 1
+
+	docs/system/rnthread.rst
+	docs/system/rnwindow.rst
+	docs/system/rnwindowconfiguration.rst
+	docs/system/rnscreen.rst
 
 Misc
 ----
