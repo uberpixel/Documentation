@@ -66,6 +66,7 @@ Application life cycle
 * :cpp:func:`Tick() <Kernel::Tick>`
 * :cpp:func:`DidSleepForSignificantTime() <Kernel::DidSleepForSignificantTime>`
 * :cpp:func:`Exit() <Kernel::Exit>`
+* :cpp:func:`ScheduleFunction(Function &&function) <Kernel::ScheduleFunction>`
 * :cpp:func:`GetTitle() const <Kernel::GetTitle>`
 * :cpp:func:`GetWindow() const <Kernel::GetWindow>`
 
@@ -118,6 +119,10 @@ Instance Methods
 	.. function:: void Exit()
 
 		Marks the engine for exit. `Tick` will return false the next time it completes.
+
+	.. function:: void ScheduleFunction(Function &&function)
+
+		Schedules the given function for execution at the beginning of the next frame. The function is guaranteed to be invoked on the main thread.
 
 	.. function:: void DidSleepForSignificantTime()
 
