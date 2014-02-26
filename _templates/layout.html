@@ -1,8 +1,17 @@
 {% extends "basic/layout.html" %}
+{% set script_files = script_files + ["_static/prettyprint.js"] %}
 
 {%- block doctype -%}
 <!DOCTYPE html>
 {%- endblock -%}
+
+{%- block extrahead %} 
+ <script type="text/javascript">
+    $(document).ready(function() {
+      $('pre').addClass('prettyprint linenums');
+    });
+  </script>      
+{% endblock %}
 
 {%- macro sidebar_rayne() %}
       {%- if render_sidebar %}
