@@ -115,6 +115,8 @@ Misc
 .. toctree::
 	:maxdepth: 1
 	
+	docs/misc/rnsyncable.rst
+	docs/misc/rnsyncpoint.rst
 	docs/misc/rnringbuffer.rst
 	docs/misc/rnlockfreeringbuffer.rst
 
