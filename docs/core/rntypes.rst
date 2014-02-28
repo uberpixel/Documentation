@@ -112,10 +112,10 @@ Range
 		The length of the range
 
 
-Singleton<T>
-============
+ISingleton<T>
+=============
 
-.. class:: Singleton<T>
+.. class:: ISingleton<T>
 	
 	Provides a base class to implement singletons. The class provides a getter to access the shared instance of
 	the singleton, and if it doesn't exist yet, the singleton is constructed using its default constructor.
@@ -139,12 +139,12 @@ Singleton<T>
 
 			MyClass *instance = MyClass::GetSharedInstance();
 
-NonConstructingSingleton<T>
-===========================
+INonConstructingSingleton<T>
+============================
 	
-.. class:: NonConstructingSingleton<T>
+.. class:: INonConstructingSingleton<T>
 	
-	Similar to :cpp:class:`Singleton\<T>`, but isn't automatically constructed when the shared instance
+	Similar to :cpp:class:`ISingleton\<T>`, but isn't automatically constructed when the shared instance
 	is requested but not found. The first instance constructed is used the shared instance, and attempting to
 	construct further instances will raise an assertion.
 
