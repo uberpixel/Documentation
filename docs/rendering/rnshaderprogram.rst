@@ -221,4 +221,4 @@ Properties
 
 	.. member:: std::vector<GLuint> texinfolocations
 
-		Vector with the texture info locations. Similar naming as the texture location vector, but with `Info` appended. Eg `mTexture0Info`. The uniforms are a vec4  with the dimension of the texture bound to it.
+		Vector with the texture info locations. Similar naming as the texture location vector, but with `Info` appended. Eg `mTexture0Info`. The uniforms are a vec4  with the dimension of the texture bound to it. xy contain 1.0 / width and 1.0 / height respectively, zw contain the width and height.
