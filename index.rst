@@ -119,6 +119,7 @@ Misc
 	docs/misc/rnsyncpoint.rst
 	docs/misc/rnringbuffer.rst
 	docs/misc/rnlockfreeringbuffer.rst
+	docs/misc/rnthreadlocalstorage.rst
 
 Misc
 ====
