@@ -1,12 +1,12 @@
 .. _rnringbuffer.rst:
 
-***************************
-ring_buffer class reference
-***************************
+******************************
+ring_buffer<T> class reference
+******************************
 
 .. namespace:: RN
 .. namespace:: stl
-.. class:: ring_buffer 
+.. class:: ring_buffer<T>
 
 +---------------------+--------------------------------------+
 |   **Availability**  | Rayne 1.0                            |
@@ -19,13 +19,13 @@ ring_buffer class reference
 Overview
 ========
 
-The ring_buffer class implements an allocator aware, stl compatible ring buffer with support for bidirectional iterators. Although they can't be resized after construction, their capacity doesn't have to be known at compile time. Unlike its counterpart, :cpp:class:`lock_free_ring_buffer`, the ring_buffer won't protect your data from being overridden once its size reached the maximum capacity, so you have to add checks to your code if you need to protect your data.
+The ring_buffer<T> class implements an allocator aware, stl compatible ring buffer with support for bidirectional iterators. Although they can't be resized after construction, their capacity doesn't have to be known at compile time. Unlike its counterpart, :cpp:class:`lock_free_ring_buffer\<T, Size\>`, the ring_buffer<T> won't protect your data from being overridden once its size reached the maximum capacity, so you have to add checks to your code if you need to protect your data.
  
 
 Instance Methods
 ================
 
-.. class:: ring_buffer
+.. class:: ring_buffer<T>
 
 	.. function:: size_type capacity() const
 

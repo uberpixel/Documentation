@@ -1,12 +1,12 @@
 .. _rnthreadlocalstorage.rst:
 
-************************************
-thread_local_storage class reference
-************************************
+***************************************
+thread_local_storage<T>	class reference
+***************************************
 
 .. namespace:: RN
 .. namespace:: stl
-.. class:: thread_local_storage 
+.. class:: thread_local_storage<T>
 
 +------------------+------------------------+
 | **Availability** |       Rayne 1.0        |
@@ -19,19 +19,13 @@ thread_local_storage class reference
 Overview
 ========
 
-The thread_local_storage class implements a "smart", templated thread local storage that also gives access to all stored values and the ability to clean all of them at once. Due to its nature, it introduces a bit more overhead than a classical thread local storage, which should be preferred is storing thread local data is all that is required.
+The thread_local_storage<T> class implements a "smart", templated thread local storage that also gives access to all stored values and the ability to clean all of them at once. Due to its nature, it introduces a bit more overhead than a classical thread local storage, which should be preferred is storing thread local data is all that is required.
 
-The full declaration of the method is:
-
-.. code:: cpp
-
-	template<class T>
-	class thread_local_storage
 
 Instance Methods
 ================
 
-.. class:: thread_local_storage
+.. class:: thread_local_storage<T>
 
 	.. function:: T &get()
 

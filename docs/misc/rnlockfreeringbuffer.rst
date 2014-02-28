@@ -1,12 +1,12 @@
 .. _rnlockfreeringbuffer.rst:
 
-*************************************
-lock_free_ring_buffer class reference
-*************************************
+**********************************************
+lock_free_ring_buffer<T, Size> class reference
+**********************************************
 
 .. namespace:: RN
 .. namespace:: stl
-.. class:: lock_free_ring_buffer 
+.. class:: lock_free_ring_buffer<T, Size> 
 
 +---------------------+--------------------------------------+
 |   **Availability**  | Rayne 1.0                            |
@@ -19,13 +19,13 @@ lock_free_ring_buffer class reference
 Overview
 ========
 
-The lock_free_ring_buffer class implements a thread safe single-reader/writer ring buffer that doesn't use locks for synchronization. Unlike it's non-thread safe counterpart `ring_buffer`, it doesn't support STL features like iterators and overriding entries that haven't been read yet. For performance reasons, storage can't be resized at runtime and the capacity must be known at compile time.
+The lock_free_ring_buffer<T, Size> class implements a thread safe single-reader/writer ring buffer that doesn't use locks for synchronization. Unlike it's non-thread safe counterpart :cpp:class:`ring_buffer<T>`, it doesn't support STL features like iterators and overriding entries that haven't been read yet. For performance reasons, storage can't be resized at runtime and the capacity must be known at compile time.
  
 
 Instance Methods
 ================
 
-.. class:: lock_free_ring_buffer
+.. class:: lock_free_ring_buffer<T, Size>
 
 	.. function:: bool push(const T& value)
 
