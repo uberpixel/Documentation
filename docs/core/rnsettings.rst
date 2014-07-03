@@ -21,7 +21,7 @@ Overview
 The settings class provides access to user defined settings that stay valid across application runs. It can serialize any valid JSON type, ie :cpp:class:`Array`, :cpp:class:`Dictionary`, :cpp:class:`Number`, :cpp:class:`String` and :cpp:class:`Null`. The initial values of the settings come from the settings.json within the resource bundle of the application, after the initial run, the settings are stored on the users disk in the following location:
 
 * Mac OS X: `~/Library/Application Support/GAME/settings.json`
-* Windows: `$DOCUMENTS\GAME\settings.json`
+* Windows: `$DOCUMENTS\\GAME\\settings.json`
 * Linux: `~/.GAME/settings.json`
 
 There is no need to manually flush the settings, as this is done automatically in the background in periodic intervals, or when catching an unhandled exception or on a normal engine shutdown.
