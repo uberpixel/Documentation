@@ -5,12 +5,12 @@ Rayne Documentation
 
 Hi and welcome to the Rayne documentation. This conglomerate of documents provide you with everything you need to know to work with Rayne as effectively as possible. If you are new to Rayne, you probably want to start with the documents found in the `Getting to love Rayne`_ section. If you stumbled upon this documentation by accident and have no idea what Rayne is, Rayne is a fast, multi-platform game engine written in C++. Intrigued? Learn more about it `here <http://rayne3d.com>`_.
 
-.. note:: Rayne is still very much in development, and the API is subject to change! This documentation is by no means complete; it only covers a very basic set of the API. Please read it anyways, and if you can, provide us with feedback at support@rayne3d.com!
+.. note:: Rayne is still very much in development, and the API is subject to change! This documentation is by no means complete; it only covers a very basic set of the API. Please read it anyways, and if you can, provide us with feedback at support@rayne3d.com! In addition, if you would like to provide us with feedback, the source for these docs is on `github <http://github.com/uberpixel/documentation>`_.
 
 Getting to love Rayne
 =====================
 
-New to Rayne? Don't worry, we've got you covered! Learn how to work with this documentation, how Rayne is structured and everything else you need to know to get going!
+New to Rayne? Don't worry, we've got you covered! In this section, you will learn how to work with this documentation, how Rayne is structured and everything else you need to know to get going!
 
 .. toctree::
 	:maxdepth: 1
