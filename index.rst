@@ -93,7 +93,6 @@ Rendering
 
 Assets
 ------
-
 .. toctree::
 	:maxdepth: 1
 
@@ -102,7 +101,6 @@ Assets
 
 System
 ------
-
 .. toctree::
 	:maxdepth: 1
 
@@ -156,10 +154,15 @@ OpenAL Audio
 	modules/openal/ralaudio_source.rst
 	modules/openal/ralaudio_world.rst
 
+OGG Loader
+----------
+.. toctree::
+	:maxdepth: 1
+
+	modules/ogg/roggresource_loader.rst
 
 Misc
 ====
-
 .. toctree::
 	:maxdepth: 1
 
