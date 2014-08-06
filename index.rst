@@ -141,6 +141,10 @@ Bullet Physics
 
 Assimp Loader
 -------------
+.. toctree::
+	:maxdepth: 1
+
+	modules/assimp/raresource_loader_assimp.rst
 
 OpenAL Audio
 ------------
