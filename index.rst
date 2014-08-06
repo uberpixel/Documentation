@@ -148,7 +148,13 @@ Assimp Loader
 
 OpenAL Audio
 ------------
+.. toctree::
+	:maxdepth: 1
 
+	modules/openal/ralaudio_listener.rst
+	modules/openal/ralaudio_resource_attachment.rst
+	modules/openal/ralaudio_source.rst
+	modules/openal/ralaudio_world.rst
 
 
 Misc
