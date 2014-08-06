@@ -26,6 +26,7 @@ Guides
 	:maxdepth: 1
 	
 	guides/anatomy.rst
+	guides/modules.rst
 
 API Reference
 =============
@@ -120,6 +121,31 @@ Misc
 	docs/misc/rnringbuffer.rst
 	docs/misc/rnlockfreeringbuffer.rst
 	docs/misc/rnthreadlocalstorage.rst
+
+Modules
+=======
+
+Rayne has an advanced module loading system that can greatly extend Rayne's feature-set. Does your game need physics, advanced artificial intelligence, more file formats, or audio? These can make your life *much* easier. Just follow the instructions stated `here <guides/modules.html>`_.
+
+Bullet Physics
+--------------
+.. toctree::
+	:maxdepth: 1
+
+	modules/bullet/rbcollision_object.rst
+	modules/bullet/rbkinematic_controller.rst
+	modules/bullet/rbphysics_material.rst
+	modules/bullet/rbphysics_world.rst
+	modules/bullet/rbrigid_body.rst
+	modules/bullet/rbshape.rst
+
+Assimp Loader
+-------------
+
+OpenAL Audio
+------------
+
+
 
 Misc
 ====
