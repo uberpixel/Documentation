@@ -47,4 +47,40 @@ Getters and Setters
 Instance Methods
 ================
 
-TBA
+.. class:: CollisionObject
+
+	.. function:: CollisionObject()
+
+		Default constructor.
+
+	.. function:: ~CollisionObject() override
+
+		Default destructor.
+
+	.. function:: void SetCollisionFilter(short int filter)
+
+		Set the filter for determining what this can collide with.
+
+	.. function:: void SetCollisionFilterMask(short int mask)
+
+	.. function:: void SetMaterial(PhysicsMaterial *material)
+
+		Set the :cpp:class:`PhysicsMaterial <PhysicsMaterial>` for this object.
+
+	.. function:: void SetContactCallback(std::function<void(CollisionObject *)> &&callback)
+
+		Determine what happens upon collision with another.
+
+	.. function:: short int GetCollisionFilter() const
+
+		Set the filter for determining what this can collide with.
+
+	.. function:: short int GetCollisionFilterMask() const
+
+	.. function:: PhysicsMaterial *GetMaterial() const
+
+		Get the :cpp:class:`PhysicsMaterial <PhysicsMaterial>` for this object.
+
+	.. function:: btCollisionObject *GetBulletCollisionObject()
+
+		Get the raw bullet object for advanced uses.

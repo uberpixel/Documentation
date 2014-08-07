@@ -34,14 +34,52 @@ Construction
 Getters and Setters
 -------------------
 
-* :cpp:func:`GetLinearDampening() const <PhysicsMaterial::GetLinearDampening const>`
-* :cpp:func:`SetLinearDampening() <PhysicsMaterial::SetLinearDampening>`
-* :cpp:func:`GetAngularDampening() const <PhysicsMaterial::GetAngularDampening const>`
-* :cpp:func:`SetAngularDampening() <PhysicsMaterial::SetAngularDampening>`
+* :cpp:func:`GetLinearDamping() const <PhysicsMaterial::GetLinearDamping const>`
+* :cpp:func:`SetLinearDamping() <PhysicsMaterial::SetLinearDamping>`
+* :cpp:func:`GetAngularDamping() const <PhysicsMaterial::GetAngularDamping const>`
+* :cpp:func:`SetAngularDamping() <PhysicsMaterial::SetAngularDamping>`
 * :cpp:func:`GetFriction() const <PhysicsMaterial::GetFriction const>`
 * :cpp:func:`SetFriction() <PhysicsMaterial::SetFriction>`
-* :cpp:func:`GetRestuition() const <PhysicsMaterial::GetRestuition const>`
-* :cpp:func:`SetRestuition() <PhysicsMaterial::SetRestuition>`
+* :cpp:func:`GetRestitution() const <PhysicsMaterial::GetRestitution const>`
+* :cpp:func:`SetRestitution() <PhysicsMaterial::SetRestitution>`
 
 Instance Methods
 ================
+
+.. class:: PhysicsMaterial
+
+	.. function:: PhysicsMaterial()
+
+		Default constructor.
+
+	.. function:: void SetLinearDamping(float damping)
+	
+		Set the damping, or the rate at which vibrations decelerate.
+
+	.. function:: void SetAngularDamping(float damping)
+	
+		Set the damping, or the rate at which vibrations decelerate, rotationally.
+
+	.. function:: void SetFriction(float friction)
+	
+		Set the friction.
+
+	.. function:: void SetRestitution(float restitution)
+
+		Set the restitution, or bounciness.
+
+	.. function:: float GetLinearDamping() const
+
+		Get the damping, or the rate at which vibrations decelerate.
+	
+	.. function:: float GetAngularDamping() const
+
+		Get the damping, or the rate at which vibrations decelerate, rotationally.
+	
+	.. function:: float GetFriction() const
+
+		Get the friction.
+	
+	.. function:: float GetRestitution() const
+
+		Get the restitution, or bounciness.
