@@ -142,6 +142,9 @@ This module is based off of the proven `bullet physics library <http://bulletphy
 
 Assimp Loader
 -------------
+
+This module is based off of the `assimp library <http://assimp.sourceforge.net>`_ which allows Rayne to import more types of 3D models. The source code for this module can be found `here <https://github.com/uberpixel/rayne-assimp>`_.
+
 .. toctree::
 	:maxdepth: 1
 
@@ -159,6 +162,9 @@ OpenAL Audio
 
 OGG Loader
 ----------
+
+This is a basic module for loading OGG sound files into Rayne, based off of the public domain stb_vorbis library. Its source can be found `here <https://github.com/uberpixel/rayne-ogg>`_
+
 .. toctree::
 	:maxdepth: 1
 

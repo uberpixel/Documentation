@@ -63,6 +63,8 @@ Instance Methods
 
 	.. function:: void SetCollisionFilterMask(short int mask)
 
+		Set the filter mask for determining what this can collide with.
+
 	.. function:: void SetMaterial(PhysicsMaterial *material)
 
 		Set the :cpp:class:`PhysicsMaterial <PhysicsMaterial>` for this object.
@@ -73,9 +75,11 @@ Instance Methods
 
 	.. function:: short int GetCollisionFilter() const
 
-		Set the filter for determining what this can collide with.
+		Get the filter for determining what this can collide with.
 
 	.. function:: short int GetCollisionFilterMask() const
+
+		Get the filter mask for determining what this can collide with.
 
 	.. function:: PhysicsMaterial *GetMaterial() const
 
