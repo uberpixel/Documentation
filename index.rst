@@ -127,6 +127,9 @@ Rayne has an advanced module loading system that can greatly extend Rayne's feat
 
 Bullet Physics
 --------------
+
+This module is based off of the proven `bullet physics library <http://bulletphysics.org/wordpress/>`_. As such, if you want a better understanding of what is happening behind the scene, or want more clarification about what everything here does, you can check out `their documentation <http://www.bulletphysics.org/mediawiki-1.5.8/index.php/Main_Page>`_ as well. The source code for this module can be found `here <https://github.com/uberpixel/rayne-bullet>`_.
+
 .. toctree::
 	:maxdepth: 1
 

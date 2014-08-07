@@ -18,4 +18,39 @@ KinematicController class reference
 | **Namespace**     | bullet                       |
 +-------------------+------------------------------+
 
+Overview
+========
+
+TBA
+
+Tasks
+=====
+
+Construction and Destruction
+----------------------------
+
+* :cpp:func:`KinematicController() <KinematicController::KinematicController>`
+* :cpp:func:`~KinematicController() override <KinematicController::~KinematicController override>`
+
+Getters and Setters
+-------------------
+
+* :cpp:func:`SetWalkDirection() <KinematicController::SetWalkDirection>`
+* :cpp:func:`SetFallSpeed() <KinematicController::SetFallSpeed>`
+* :cpp:func:`SetJumpSpeed() <KinematicController::SetJumpSpeed>`
+* :cpp:func:`SetMaxJumpHeight() <KinematicController::SetMaxJumpHeight>`
+* :cpp:func:`SetMaxSlope() <KinematicController::SetMaxSlope>`
+* :cpp:func:`SetGravity() <KinematicController::SetGravity>`
+* :cpp:func:`virtual GetBulletCollisionObject() <KinematicController::GetBulletCollisionObject>`
+
+Actions
+-------
+
+* :cpp:func:`Update() override <KinematicController::Update override>`
+* :cpp:func:`IsOnGround() <KinematicController::IsOnGround>`
+* :cpp:func:`Jump() <KinematicController::Jump>`
+
+Instance Methods
+================
+
 TBA

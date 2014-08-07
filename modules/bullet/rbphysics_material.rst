@@ -18,4 +18,30 @@ PhysicsMaterial class reference
 | **Namespace**     | bullet              |
 +-------------------+---------------------+
 
+Overview
+========
+
 TBA
+
+Tasks
+=====
+
+Construction
+------------
+
+* :cpp:func:`PhysicsMaterial() <PhysicsMaterial::PhysicsMaterial>`
+
+Getters and Setters
+-------------------
+
+* :cpp:func:`GetLinearDampening() const <PhysicsMaterial::GetLinearDampening const>`
+* :cpp:func:`SetLinearDampening() <PhysicsMaterial::SetLinearDampening>`
+* :cpp:func:`GetAngularDampening() const <PhysicsMaterial::GetAngularDampening const>`
+* :cpp:func:`SetAngularDampening() <PhysicsMaterial::SetAngularDampening>`
+* :cpp:func:`GetFriction() const <PhysicsMaterial::GetFriction const>`
+* :cpp:func:`SetFriction() <PhysicsMaterial::SetFriction>`
+* :cpp:func:`GetRestuition() const <PhysicsMaterial::GetRestuition const>`
+* :cpp:func:`SetRestuition() <PhysicsMaterial::SetRestuition>`
+
+Instance Methods
+================
