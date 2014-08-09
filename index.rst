@@ -26,6 +26,7 @@ Guides
 	:maxdepth: 1
 	
 	guides/anatomy.rst
+	guides/memory.rst
 
 API Reference
 =============

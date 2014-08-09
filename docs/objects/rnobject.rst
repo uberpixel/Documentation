@@ -33,6 +33,8 @@ Objects start with a reference count of 1 upon creation, and you can add a refer
 
 The reference counting brings numerous advantages, however, it also means that you shouldn't create objects on the stack or call delete directly on them (with the only exception being the :cpp:class:`Array` class).
 
+For a more complete overview of Raynes memory management, take a look at the :ref:`memory.rst` guide.
+
 Subclassing notes
 -----------------
 
