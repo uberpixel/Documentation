@@ -4,7 +4,7 @@
 Rayne memory management
 ***********************
 
-Rayne provides different layers of memory management. Classes that inherit from :cpp:class`Object` provide a reference counting memory system, which allows objects to be shared more easily between components and threads. Lower level classes like :cpp:class`Vector3` have to be managed in the classical sense, either via `new` and `delete` or by putting them into automatic storage variables, which is the more common use case.
+Rayne provides different layers of memory management. Classes that inherit from :cpp:class:`Object` provide a reference counting memory system, which allows objects to be shared more easily between components and threads. Lower level classes like :cpp:class:`Vector3` have to be managed in the classical sense, either via `new` and `delete` or by putting them into automatic storage variables, which is the more common use case.
 
 Automatic reference counting
 ============================
