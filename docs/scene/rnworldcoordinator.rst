@@ -29,12 +29,21 @@ Loading worlds
 --------------
 
 * :cpp:func:`LoadWorld(World *world) <WorldCoordinator::LoadWorld>`
+* :cpp:func:`LoadWorld(const std::string &file) <WorldCoordinator::LoadWorld>`
+* :cpp:func:`LoadWorld(Deserialiter *deserializer) <WorldCoordinator::LoadWorld>`
 * :cpp:func:`IsLoading() const <WorldCoordinator::IsLoading>`
+  
+Saving worlds
+-------------
+
+* :cpp:func:`SaveWorld(const std::string &file) <WorldCoordinator::SaveWorld>`
+* :cpp:func:`SaveWorld(Serializer *serializer) <WorldCoordinator::SaveWorld>`
 
 Misc
 ----
 
 * :cpp:func:`GetWorld() const <WorldCoordinator::GetWorld>`
+* :cpp:func:`GetWorldFile() const <WorldCoordinator::GetWorldFile>`
 
 
 Instance Methods
@@ -49,13 +58,33 @@ Instance Methods
 		.. note:: Only one world can be loaded at once, this method will throw an exception if there is a second loading attempt while an old one is still running
 		.. note:: Upon return, the given world is already the active world.
 
+	.. function:: Progress *LoadWorld(const std::string &file)
+
+		Opens the file and loads it using the default deserializer class into a new world, which is then made active.
+
+	.. function:: Progress *LoadWorld(Deserializer *deserializer)
+
+		Loads a world that has been previously serialized from the given deserializer.
+
 	.. function:: bool IsLoading() const
 
 		Returns true if the world coordinator is currently loading a world
 
+	.. function:: void SaveWorld(const std::string &file)
+
+		Saves the active world into the specified file using the default serializer class.
+
+	.. function:: void SaveWorld(Serializer *serializer)
+
+		Saves the active world into the given serializer, but doesn't write it to disk.
+
 	.. function:: World *GetWorld() const
 
 		Returns the currently managed world.
+
+	.. function:: std::string GetWorldFile() const
+
+		If the world has been loaded from a file, the path of that file is returned by this function, otherwise an empty string.
 
 Messages
 ========
