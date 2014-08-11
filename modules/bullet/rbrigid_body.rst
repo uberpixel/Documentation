@@ -21,7 +21,7 @@ RigidBody class reference
 Overview
 ========
 
-TBA
+RigidBodies are used by bullet to track rotation and forces on objects. As such, they have many getters and setters, which give you plenty of control over what they do.
 
 Tasks
 =====

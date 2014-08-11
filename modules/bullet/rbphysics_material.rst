@@ -21,7 +21,7 @@ PhysicsMaterial class reference
 Overview
 ========
 
-TBA
+Physics materials contain data for many of the attributes that an object might have in a physics simulation. This includes data like friction and bounciness. 
 
 Tasks
 =====

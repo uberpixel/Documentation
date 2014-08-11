@@ -18,4 +18,12 @@ AudioSource class reference
 | **Namespace**     | openal                 |
 +-------------------+------------------------+
 
+Overview
+========
+
+TBA
+
+Tasks
+=====
+
 TBA

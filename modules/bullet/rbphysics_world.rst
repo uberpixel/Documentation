@@ -23,7 +23,7 @@ PhysicsWorld class reference
 Overview
 ========
 
-TBA
+This class acts as an extension of your game world, and it manages all of the objects inside of it. It effectively controls the entire physics simulation, and changes made here can affect everything in it.
 
 Tasks
 =====

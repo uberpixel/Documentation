@@ -152,6 +152,9 @@ This module is based off of the `assimp library <http://assimp.sourceforge.net>`
 
 OpenAL Audio
 ------------
+
+This module allows you to use advanced 3D audio in your game. It is based off of the `OpenAL Soft library <http://kcat.strangesoft.net/openal.html>`_, which is a software implementation of the OpenAL standard. Its source can be found `here <https://github.com/uberpixel/rayne-openal>`_.
+
 .. toctree::
 	:maxdepth: 1
 

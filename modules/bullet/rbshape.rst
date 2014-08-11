@@ -21,7 +21,7 @@ Shape class references
 Overview
 ========
 
-TBA
+Shapes are what bullet uses to test for collisions between bodies. While :cpp:class:`RigidBodies <RigidBodies>` contain data about rotation, movement, and torque, shapes can act as a shell for these, which get used in collision checks. There are many different kinds of shapes, which are all mentioned in the `Subclasses`_ section.
 
 Tasks
 =====
