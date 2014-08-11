@@ -7,13 +7,13 @@ Application class reference
 .. namespace:: RN
 .. class:: Application
 
-+-------------------+----------------------------------------------------------------------------------------+
-| **Inherits from** | :cpp:class:`INonConstructingSingleton\<Application\> <INonConstructingSingleton\<T\>>` |
-+-------------------+----------------------------------------------------------------------------------------+
-| **Availability**  | Rayne 1.0                                                                              |
-+-------------------+----------------------------------------------------------------------------------------+
-| **Declared in**   | RNApplication.h                                                                        |
-+-------------------+----------------------------------------------------------------------------------------+
++-------------------+------------------------------------------------------------------------------------------------------------------------------------+
+| **Inherits from** | :cpp:class:`UI::Responder <UI::Responder>`, :cpp:class:`INonConstructingSingleton\<Application\> <INonConstructingSingleton\<T\>>` |
++-------------------+------------------------------------------------------------------------------------------------------------------------------------+
+| **Availability**  | Rayne 1.0                                                                                                                          |
++-------------------+------------------------------------------------------------------------------------------------------------------------------------+
+| **Declared in**   | RNApplication.h                                                                                                                    |
++-------------------+------------------------------------------------------------------------------------------------------------------------------------+
 
 Overview
 ========
@@ -36,6 +36,10 @@ Event handling
 
 * :cpp:func:`virtual Start() <Application::Start>`
 * :cpp:func:`virtual WillExit() <Application::WillExit>`
+* :cpp:func:`virtual WillBecomeActive() <Application::WillBecomeActive>`
+* :cpp:func:`virtual DidBecomeActive() <Application::DidBecomeActive>`
+* :cpp:func:`virtual WillResignActive() <Application::WillResignActive>`
+* :cpp:func:`virtual DidResignActive() <Application::DidResignActive>`
 * :cpp:func:`virtual GameUpdate(float delta) <Application::GameUpdate>`
 * :cpp:func:`virtual WorldUpdate(float delta) <Application::WorldUpdate>`
 
@@ -66,6 +70,22 @@ Instance Methods
 	.. function:: void WorldUpdate(float delta)
 
 		Called after each world step, ie once per frame if there is a completely loaded world available.
+
+	.. function:: void WillBecomeActive()
+
+		Called when the engine window is about to become active.
+
+	.. function:: void DidBecomeActive()
+
+		Called when the engine window became active
+
+	.. function:: void WillResignActive()
+
+		Called when the engine window is about to become inactive. Can be used to reduce the rendering FPS while the engine is in the background.
+
+	.. function:: void DidResignActive()
+
+		Called when the engine window did become inactive.
 
 	.. function:: void SetTitle(const std::string &title)
 

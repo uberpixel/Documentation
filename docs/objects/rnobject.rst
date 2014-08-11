@@ -33,6 +33,8 @@ Objects start with a reference count of 1 upon creation, and you can add a refer
 
 The reference counting brings numerous advantages, however, it also means that you shouldn't create objects on the stack or call delete directly on them (with the only exception being the :cpp:class:`Array` class).
 
+For a more complete overview of Raynes memory management, take a look at the :ref:`memory.rst` guide.
+
 Subclassing notes
 -----------------
 
@@ -63,8 +65,8 @@ Memory management
 Identifying objects
 -------------------
 
-* :cpp:func:`Class() const <Object::Class const>`
-* :cpp:func:`MetaClass() static <Object::MetaClass>`
+* :cpp:func:`GetClass() const <Object::GetClass const>`
+* :cpp:func:`GetMetaClass() static <Object::GetMetaClass>`
 * :cpp:func:`IsKindOfClass() const <Object::IsKindOfClass const>`
 * :cpp:func:`IsMemeberOfClass() const <Object::IsMemberOfClass const>`
 * :cpp:func:`Downcast() <Object::Downcast>`
@@ -98,26 +100,26 @@ Class Methods
 
 .. class:: Object 
 
-	.. function:: static MetaClassBase *MetaClass()
+	.. function:: static MetaClass *GetMetaClass()
 
-		Returns the :code:`MetaClassBase` of the receiver.
+		Returns the :code:`MetaClass` of the receiver.
 
-	.. function:: static void InitialWakeUp(MetaClassBase *meta)
+	.. function:: static void InitialWakeUp(MetaClass *meta)
 
 		Automatically invoked when the class is added to the class catalogue. Can be used
 		to defer initialization to the runtime when the engine is already bootstrapped.
 
 		When overriding this method, make sure to check that the passed :code:`meta` variable is
-		actually the expected MetaClassBase, since this method may be invoked multiple times through
+		actually the expected MetaClass, since this method may be invoked multiple times through
 		subclasses.
 
 	.. admonition:: Example
 
 		.. code:: cpp
 
-			void MyClass::InitialWakeUp(MetaClassBase *meta)
+			void MyClass::InitialWakeUp(MetaClass *meta)
 			{
-			    if(meta == MyClass::MetaClass())
+			    if(meta == MyClass::GetMetaClass())
 			    {
 			        // Code here
 			    }
@@ -152,19 +154,19 @@ Instance Methods
 
 		:raises: :code:`InternalInconsistencyException` when the receiver doesn't support the :cpp:class:`MetaClassTraitCopyable` trait.
 
-	.. function:: MetaClassBase *Class() const
+	.. function:: MetaClass *GetClass() const
 
-		Returns the :code:`MetaClassBase` of the receiver.
+		Returns the :code:`MetaClass` of the receiver.
 
-	.. function:: bool IsKindOfClass(MetaClassBase *other) const
+	.. function:: bool IsKindOfClass(MetaClass *other) const
 
 		Returns true if the receiver inherits from the class abstracted by :code:`other`, that is,
-		if you pass :code:`Object::MetaClass`, the receiver will return true if it inherits from :cpp:class:`Object`,
+		if you pass :code:`Object::GetMetaClass`, the receiver will return true if it inherits from :cpp:class:`Object`,
 		or one of its subclasses (or one of their subclasses respectively).
 
 		.. seealso:: :cpp:func:`Object::IsMemberOfClass`
 
-	.. function:: bool IsMemberOfClass(MetaClassBase *other) const
+	.. function:: bool IsMemberOfClass(MetaClass *other) const
 
 		Returns true if the receiver directly inherits from the class abstracted by :code:`other`.
 
@@ -290,26 +292,11 @@ Constants
 Macros
 ======
 
-.. c:macro:: RNDeclareMeta(cls, super)
+.. c:macro:: RNDeclareMeta(cls)
 
 	Adds required prototypes for the runtime type system to the given class. Must be added within the class definition.
 
-	.. admonition:: Example
-
-		.. code:: cpp
-
-			class MyClass : public Object
-			{
-			public:
-				// ...
-
-			private:
-				// ...
-
-				RNDefineMeta(MyClass, Object)
-			};
-
-.. c:macro:: RNDefineMeta(cls)
+.. c:macro:: RNDefineMeta(cls, super)
 
 	Adds required implementations for the runtime type system to the given class. MUST be added within a .cpp file due to the way linking works.
 
