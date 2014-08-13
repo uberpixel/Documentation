@@ -21,9 +21,28 @@ AudioListener class reference
 Overview
 ========
 
-TBA
+This class represents a point in the world that can hear audio, and relay it to the player's speakers.
 
 Tasks
 =====
 
-TBA
+* :cpp:func:`AudioListener() <AudioListener::AudioListener>`
+* :cpp:func:`~AudioListener() override <AudioListener::~AudioListener>`	
+* :cpp:func:`Update() <AudioListener::Update>`
+
+Instance Methods
+================
+
+.. class:: AudioListener
+
+	.. function:: AudioListener()
+	
+		Default constructor.
+
+	.. function:: ~AudioListener() override
+			
+		Default destructor.
+
+	.. function:: void Update(float delta)
+
+		Call on update.

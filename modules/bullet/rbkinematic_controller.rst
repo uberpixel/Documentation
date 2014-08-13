@@ -21,7 +21,7 @@ KinematicController class reference
 Overview
 ========
 
-TBA
+This class serves as the character controller, which, as you can probably guess, is what you use to create your characters off of. This class provides functions for setting just about any physical property that a character might have, like the slopes that it can climb, or the speed at which it jumps, etc.
 
 Tasks
 =====

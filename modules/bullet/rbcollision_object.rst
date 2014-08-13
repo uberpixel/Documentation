@@ -21,7 +21,7 @@ CollisionObject class reference
 Overview
 ========
 
-TBA
+This object serves as the base class for any physics object that you want to add to the world. It manages broad-phase collision detection and physics materials.
 
 Tasks
 =====
