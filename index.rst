@@ -118,6 +118,7 @@ Threads & Locks
 	docs/threading/rnspinlock.rst
 	docs/threading/rnrecursivespinlock.rst
 	docs/threading/rnadaptivelock.rst
+	docs/threading/rnlockguard.rst
 	docs/misc/rnsyncable.rst
 	docs/misc/rnsyncpoint.rst
 	docs/misc/rnthreadlocalstorage.rst
