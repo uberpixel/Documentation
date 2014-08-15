@@ -105,21 +105,31 @@ System
 .. toctree::
 	:maxdepth: 1
 
-	docs/system/rnthread.rst
 	docs/system/rnwindow.rst
 	docs/system/rnwindowconfiguration.rst
 	docs/system/rnscreen.rst
+
+Threads & Locks
+---------------
+.. toctree::
+	:maxdepth: 1
+
+	docs/system/rnthread.rst
+	docs/threading/rnspinlock.rst
+	docs/threading/rnrecursivespinlock.rst
+	docs/threading/rnadaptivelock.rst
+	docs/misc/rnsyncable.rst
+	docs/misc/rnsyncpoint.rst
+	docs/misc/rnthreadlocalstorage.rst
 
 Misc
 ----
 .. toctree::
 	:maxdepth: 1
 	
-	docs/misc/rnsyncable.rst
-	docs/misc/rnsyncpoint.rst
 	docs/misc/rnringbuffer.rst
 	docs/misc/rnlockfreeringbuffer.rst
-	docs/misc/rnthreadlocalstorage.rst
+	
 
 Modules
 =======
