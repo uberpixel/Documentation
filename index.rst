@@ -27,6 +27,7 @@ Guides
 	
 	guides/anatomy.rst
 	guides/memory.rst
+	guides/modules.rst
 
 API Reference
 =============
@@ -93,7 +94,6 @@ Rendering
 
 Assets
 ------
-
 .. toctree::
 	:maxdepth: 1
 
@@ -102,7 +102,6 @@ Assets
 
 System
 ------
-
 .. toctree::
 	:maxdepth: 1
 
@@ -122,9 +121,61 @@ Misc
 	docs/misc/rnlockfreeringbuffer.rst
 	docs/misc/rnthreadlocalstorage.rst
 
+Modules
+=======
+
+Rayne has an advanced module loading system that can greatly extend Rayne's feature-set. Does your game need physics, advanced artificial intelligence, more file formats, or audio? These can make your life *much* easier. Just follow the instructions stated `here <guides/modules.html>`_.
+
+Bullet Physics
+--------------
+
+This module is based off of the proven `bullet physics library <http://bulletphysics.org/wordpress/>`_. As such, if you want a better understanding of what is happening behind the scene, or want more clarification about what everything here does, you can check out `their documentation <http://www.bulletphysics.org/mediawiki-1.5.8/index.php/Main_Page>`_ as well. The source code for this module can be found `here <https://github.com/uberpixel/rayne-bullet>`_.
+
+.. toctree::
+	:maxdepth: 1
+
+	modules/bullet/rbcollision_object.rst
+	modules/bullet/rbkinematic_controller.rst
+	modules/bullet/rbphysics_material.rst
+	modules/bullet/rbphysics_world.rst
+	modules/bullet/rbrigid_body.rst
+	modules/bullet/rbshape.rst
+
+Assimp Loader
+-------------
+
+This module is based off of the `assimp library <http://assimp.sourceforge.net>`_ which allows Rayne to import more types of 3D models. The source code for this module can be found `here <https://github.com/uberpixel/rayne-assimp>`_.
+
+.. toctree::
+	:maxdepth: 1
+
+	modules/assimp/raresource_loader_assimp.rst
+
+OpenAL Audio
+------------
+
+This module allows you to use advanced 3D audio in your game. It is based off of the `OpenAL Soft library <http://kcat.strangesoft.net/openal.html>`_, which is a software implementation of the OpenAL standard. Its source can be found `here <https://github.com/uberpixel/rayne-openal>`_.
+
+.. toctree::
+	:maxdepth: 1
+
+	modules/openal/ralaudio_listener.rst
+	modules/openal/ralaudio_resource_attachment.rst
+	modules/openal/ralaudio_source.rst
+	modules/openal/ralaudio_world.rst
+
+OGG Loader
+----------
+
+This is a basic module for loading OGG sound files into Rayne, based off of the public domain stb_vorbis library. Its source can be found `here <https://github.com/uberpixel/rayne-ogg>`_
+
+.. toctree::
+	:maxdepth: 1
+
+	modules/ogg/roggresource_loader.rst
+
 Misc
 ====
-
 .. toctree::
 	:maxdepth: 1
 
