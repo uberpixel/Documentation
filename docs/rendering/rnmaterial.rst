@@ -183,7 +183,7 @@ Instance Methods
 
 	.. function:: void SetDepthTest(bool enabled)
 
-		Sets wether the material should render with depth testing enabled or not.
+		Sets wether the material should render with depth testing enabled or not. If this is disabled, depth writing will also not work! If you need depth writing, set the depth test mode to ALWAYS instead.
 
 	.. function:: void SetDepthWrite(bool enabled)
 
